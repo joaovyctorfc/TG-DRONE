@@ -1,0 +1,91 @@
+
+/* Adicione o estilo das cores aqui */
+body{
+
+
+    background-color: #0e1525;
+    
+    }
+.navbar-nav .nav-link {
+    color: #fff !important;
+}
+
+          
+.nav-link.active1 {
+    color: red;
+}
+
+.card {
+    width: 50%;
+    height: 150px;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+        left: 58%;
+    transform: translate(-50%, -50%);
+    background-color: #0e1525;
+    color: #fff; /* Define a cor do texto como branco */
+    border: none; /* Remove a borda */
+}
+
+
+/* Estilo personalizado para o botão "Procurar" */
+.custom-file-input::file-selector-button {
+background-color: #6c757d;
+    color: #fff;
+border-radius: 10px; /* Borda arredondada para o botão */
+padding: 5px 10px; /* Espaçamento interno para o botão */
+margin-top: 10px; /* Espaçamento superior do botão */
+border: none; /* Remove a borda do botão */
+cursor: pointer; /* Mostrar o cursor de mão ao passar o mouse sobre o botão */
+}
+a {
+color: #4d7dab; /* Cor mais clara do que o azul padrão */
+}
+/* Efeito de hover para o botão "Procurar" */
+.custom-file-input::file-selector-button:hover {
+background-color: #4d4f51; /* Altera a cor de fundo quando hover */
+            border: 2px solid #5f656a; 
+}
+
+/* Centralizar o texto "Login" */
+h1 {
+    text-align: center;
+}
+
+/* Alterar a cor do link para uma tonalidade mais clara */
+a {
+color: #4d7dab; /* Cor mais clara do que o azul padrão */
+}
+
+/* Ou, se desejar aplicar a uma classe específica */
+.link-clara {
+color: #4d7dab; /* Cor mais clara para links com a classe "link-clara" */
+}
+
+
+.center-input {
+display: flex;
+justify-content: center;
+}
+
+
+
+
+
+
+
+.btn-primary {
+    background-color: #004182;
+color: #fff;
+border: 2px solid #6289b4; 
+}
+.btn-primary:hover {
+    background-color: #007bff; }
+
+
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+}

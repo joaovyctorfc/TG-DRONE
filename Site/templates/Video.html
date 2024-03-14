@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7Rxnatzjc3DSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+        crossorigin="anonymous">
+        <link rel="stylesheet" href="{{url_for('static',filename='css/Video.css')}}" />
+
+
+</head>
+
+<body>
+ 
+    <nav class="navbar navbar-expand-lg" style="background-color: #1c2333;">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/Video">Videos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/Upload">Upload</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/tempo">Tempo</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active1" aria-current="page" href="/">Sair</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+ 
+
+<div class="c-loader"></div>
+
+
+
+<h1 style="margin-top: 60px;  color: #fff;">Meus Vídeos</h1>
+    
+
+    <div id="videos-container" style="margin-left: 20px;"></div>
+
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.8/download.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.8.0/jszip.min.js"></script>
+
+<div id="videos-container" style="display: flex; flex-wrap: wrap;"></div>
+
+<script>
+function showLoadingAnimation() {
+    var loadingAnimation = document.querySelector('.c-loader');
+    loadingAnimation.style.display = 'block';
+}
+
+function hideLoadingAnimation() {
+    var loadingAnimation = document.querySelector('.c-loader');
+    loadingAnimation.style.display = 'none';
+}
+
+var userEmail = "{{ session['user_email'] }}";
+var userNome = "{{ session['user_nome'] }}";
+var firebaseConfig = {
+
+apiKey: "AIzaSyCWoXcUT4RYW0rOaFIVcw-MLho9e7zb2UI",
+
+authDomain: "projeto-ufa.firebaseapp.com",
+
+databaseURL: "https://projeto-ufa-default-rtdb.firebaseio.com",
+
+projectId: "projeto-ufa",
+
+storageBucket: "projeto-ufa.appspot.com",
+
+messagingSenderId: "18862295214",
+
+appId: "1:18862295214:web:0ef2c81c0531d4bea7053f"
+
+};
+
+firebase.initializeApp(firebaseConfig);
+var messagesRef = firebase.database().ref('Checking');
+var selectedImageURLs = [];
+
+function loadVideosByDateTime() {
+    var rowDiv = document.createElement("div");
+    rowDiv.classList.add("row");
+    console.log("Iniciando o carregamento de vídeos...");
+    
+    messagesRef.orderByChild('date').once('value', function (snapshot) {
+        var videos = [];
+
+        snapshot.forEach(function (childSnapshot) {
+            var childData = childSnapshot.val();
+            var videoUri = childData.imageurl;
+            var videoUserEmail = childData.email;
+
+            if (videoUserEmail === userEmail) {
+                var colDiv = document.createElement("div");
+                colDiv.classList.add("col-6");
+                colDiv.style.width = "50%";
+                
+                var videoElement = document.createElement("video");
+                videoElement.controls = true;
+                videoElement.style.maxWidth = "80%";
+                videoElement.style.display = "block";
+                videoElement.style.marginTop = "50px";
+                videoElement.classList.add("video-with-border");
+                videoElement.setAttribute("data-video-url", videoUri);
+
+                var downloadButton = document.createElement("button");
+                downloadButton.textContent = "Download";
+                downloadButton.classList.add("btn", "btn-primary");
+                downloadButton.marginLeft="-150px";
+
+                var downloadButton1 = document.createElement("button");
+                downloadButton1.textContent = "Deletar";
+                downloadButton1.classList.add("btn", "btn-secondary");
+                downloadButton1.marginRight="-150px";
+
+                downloadButton.addEventListener('click', function () {
+                    downloadSingleVideo(videoUri);
+                });
+                downloadButton1.addEventListener('click', function () {
+                    deletedSingleVideo(videoUri);
+                });
+                var dateText = document.createElement("span");
+                dateText.textContent = "Data e Hora: " + childData.date;
+                    dateText.style.color = "white";
+
+                colDiv.appendChild(videoElement);
+                colDiv.appendChild(downloadButton);
+
+                colDiv.appendChild(dateText);
+                colDiv.appendChild(downloadButton1);
+
+                rowDiv.appendChild(colDiv);
+
+                videos.push({
+                    videoUri: videoUri,
+                    date: childData.date
+                });
+
+                firebase.storage().refFromURL(videoUri).getDownloadURL().then(function (videoUrl) {
+                    var sourceElement = document.createElement("source");
+                    sourceElement.src = videoUrl;
+
+                    var fileExtension = videoUri.split('.').pop().toLowerCase();
+                    if (fileExtension === 'mp4') {
+                        sourceElement.type = "video/mp4";
+                    } else if (fileExtension === 'webm') {
+                        sourceElement.type = "video/webm";
+                    } else if (fileExtension === 'avi') {
+                        sourceElement.type = "video/x-msvideo";
+                    } else if (fileExtension === 'flv') {
+                        sourceElement.type = "video/x-flv";
+                    } else {
+                        sourceElement.type = "video/mp4";
+                    }
+
+                    videoElement.appendChild(sourceElement);
+                }).catch(function (error) {
+                    console.error('Erro ao obter a URL do vídeo:', error);
+                });
+            }
+        });
+
+        var videoContainer = document.getElementById('videos-container');
+        videoContainer.appendChild(rowDiv);
+        hideLoadingAnimation();
+        
+        
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    loadVideosByDateTime();
+});
+
+function downloadSingleVideo(videoUri) {
+    console.log(videoUri);
+}
+
+function deletedSingleVideo(videoUri) {
+    var videoElements = document.querySelectorAll('video[data-video-url="' + videoUri + '"]');
+    videoElements.forEach(function(videoElement) {
+        var videoDiv = videoElement.parentNode;
+        videoDiv.parentNode.removeChild(videoDiv);
+    });}
+
+
+
+
+   
+
+function deletedSingleVideo(videoUri) {
+    var videoElements = document.querySelectorAll('video[data-video-url="' + videoUri + '"]');
+
+    var videoRef = messagesRef.orderByChild('imageurl').equalTo(videoUri);
+    videoElements.forEach(function(videoElement) {
+        var videoDiv = videoElement.parentNode;
+        videoDiv.parentNode.removeChild(videoDiv);
+    });
+    videoRef.once('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+            childSnapshot.ref.remove()
+                .then(function() {
+                    console.log("Vídeo removido do banco de dados com sucesso!");
+                })
+                .catch(function(error) {
+                    console.error("Erro ao remover vídeo do banco de dados: ", error);
+                });
+        });
+    });}
+    
+
+
+
+</script>
+
+</body>
+</html>

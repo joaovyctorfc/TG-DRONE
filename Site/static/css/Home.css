@@ -1,0 +1,111 @@
+       /* Adicione o estilo das cores aqui */
+       body{
+
+
+        background-color: #0e1525;
+        
+        }
+                  
+        .nav-link.active1 {
+          color: red;
+      }
+      
+     
+.loading-animation {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    transform: scale(5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+  }
+  
+  
+  .c-loader {
+    animation: is-rotating 1s infinite;
+    border: 6px solid #e5e5e5;
+    border-radius: 50%;
+    border-top-color: #51d4db;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 50%;
+    left: 48%;
+  
+  }
+  
+  @keyframes is-rotating {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
+        .navbar-nav .nav-link {
+            color: #fff !important;
+        }
+        /* Centralizar o texto "Login" */
+        h1 {
+        text-align: center;
+        margin-top: 100px; /* Ajuste a margem superior conforme necessário */
+        }
+        /* Alterar a cor do link para uma tonalidade mais clara */
+        a {
+        color: #4d7dab; /* Cor mais clara do que o azul padrão */
+        }
+        
+        /* Ou, se desejar aplicar a uma classe específica */
+        .link-clara {
+        color: #4d7dab; /* Cor mais clara para links com a classe "link-clara" */
+        }
+        
+        /* Ajustar a posição da div .form_frente sem afetar o "Login" */
+        .form-control {
+            width: 40%; 
+            font-size: 14px; 
+            text-align: left;
+            margin: 0 auto;           
+            margin-top: 20px;
+        }
+        .center-input {
+        display: flex;
+        justify-content: center;
+        }
+        
+        .form_frente {
+            text-align: center;
+            padding:  100px -100px; /* Reduzir o preenchimento */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            color: #ffffff;
+            background-color: transparent; /* Fundo transparente */
+            border: none; /* Remove a borda */
+            padding: 0; /* Sem preenchimento */
+            box-shadow: none; /* Remove a sombra */
+            margin-top: 60px; /* Ajuste a margem superior conforme necessário */
+            
+            
+            }
+            
+        
+            .btn-primary {
+                background-color: #004182;
+            color: #fff;
+            border: 2px solid #6289b4; 
+            }
+            .btn-primary:hover {
+                background-color: #007bff; }
+            
+            
+            
+            .btn-secondary {
+                background-color: #6c757d;
+                color: #fff;
+            }
+
+  .hidden {
+    display: none; /* Classe para ocultar o elemento */
+}

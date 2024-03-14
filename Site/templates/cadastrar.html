@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/Cadastrar.css')}}" />
+
+</head>
+<body>
+ 
+    
+
+    <div class="form_frente" 
+    >
+            <div class="login-header" style="color: #fff; padding-top: 50px;">
+                <h1>Cadastrar</h1>
+            </div>
+        <form action="/cadastrar" id="cadastrar" method="POST">
+            <div class="custom-width">
+                <input type="text" name="nome" class="form-control" id="inputName4" placeholder="Nome">
+            </div>
+            <div class="custom-width">
+                <input type="text" name="email" class="form-control"  id="inputEmail4" placeholder="Email">
+            </div>
+            <div class="custom-width">
+                <input type="password" name="senha" class="form-control" id="inputPassword4" placeholder="Senha">
+            </div>
+            <div class="custom-width">
+                <input type="password" name="senha1" class="form-control" id="inputPassword42" placeholder="Confirme a senha">
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary"  style="border-radius: 10px; margin-top: 25px;"> Cadastrar</button>
+                <button type="button" class="btn btn-secondary"  style="border-radius: 10px; margin-top: 25px;" onclick="window.location.href='/'">Voltar</button>
+          
+
+            </div>
+        </form>
+        {% set mensagem = get_flashed_messages() %}
+        {% if mensagem %}
+            <div class="flash_alerta {% if 'cadastrado com sucesso' in mensagem[0] %}flash_sucesso{% else %}flash_erro{% endif %}"style="margin-top: 10px;">
+                {{ mensagem[0] }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" 
+    crossorigin=""></script>
+    <title>Home</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/Home.css')}}" />
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg" style="background-color: #1c2333;">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/Video">Videos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/Upload">Upload</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/tempo">Tempo</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active1" aria-current="page" href="/">Sair</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="c-loader"></div>
+
+
+
+        <script>
+
+        function showLoadingAnimation() {
+            var loadingAnimation = document.querySelector('.c-loader');
+            loadingAnimation.style.display = 'block';
+
+        }
+        
+        function hideLoadingAnimation() {
+            var loadingAnimation = document.querySelector('.c-loader');
+            loadingAnimation.style.display = 'none';
+        }
+        /*
+        // Aguarde o carregamento completo da página antes de chamar a função
+        window.addEventListener('load', function () {
+            obterDadosDaAPI();
+            atualizarDadosACadaSegundo(); // Inicia a atualização dos dados
+
+            showLoadingAnimation();
+        });
+        
+        function obterDadosDaAPI() {
+            setTimeout(function () {
+                fetch('/api')
+                    .then(response => response.text())
+                    .then(data => {
+                        const umidadeMatch = data.match(/Umidade: (\d+\.\d+)%/);
+                        const temperaturaMatch = data.match(/Temperatura: (\d+)C/);
+                        const luminosidadeMatch = data.match(/Luminosidade: (\d+)/);
+                        const chuvaMatch = data.match(/Chuva: (\w+)/);
+        
+                        if (umidadeMatch && temperaturaMatch && luminosidadeMatch && chuvaMatch ) {
+                            const umidadeSpan = document.getElementById('umidade');
+                            const temperaturaSpan = document.getElementById('temperatura');
+                            const luminosidadeSpan = document.getElementById('luminosidade');
+                            const chuvaSpan = document.getElementById('chanceChuva');
+        
+                            umidadeSpan.textContent = umidadeMatch[1];
+                            temperaturaSpan.textContent = temperaturaMatch[1];
+                            luminosidadeSpan.textContent = luminosidadeMatch[1];
+                            chuvaSpan.textContent = chuvaMatch[1];
+
+
+                        } else {
+                            console.error('Dados da API não correspondem ao formato esperado.');
+                        }
+        
+                        hideLoadingAnimation();
+        
+                        // Agora, após a conclusão da função obterDadosDaAPI, exibimos a div
+                        document.getElementById('dados').style.display = 'block';
+                    })
+                    .catch(error => {
+                        console.error('Erro ao buscar dados da API:', error);
+                        hideLoadingAnimation();
+                    });
+            }, 2000);
+        }
+        function atualizarDadosACadaSegundo() {
+    obterDadosDaAPI(); // Chama a função para obter dados imediatamente
+
+    setInterval(() => {
+        obterDadosDaAPI(); // Chama a função a cada segundo para atualizar os dados
+    }, 1000); // Atualiza a cada 1 segundo (1000 milissegundos)
+}
+
+*/
+        </script>
+        
+</body>
+</html>

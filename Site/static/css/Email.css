@@ -1,0 +1,93 @@
+/* Adicione o estilo das cores aqui */
+body {
+    background-color: #0e1525;
+}
+
+/* Centralizar o texto "Login" e abaixar */
+h1 {
+ 
+    
+}
+
+/* Alterar a cor do link para uma tonalidade mais clara */
+a {
+    color: #4d7dab; /* Cor mais clara do que o azul padrão */
+    font-size: 14px;
+}
+
+/* Ou, se desejar aplicar a uma classe específica */
+.link-clara {
+    color: #a0bad3; /* Cor mais clara para links com a classe "link-clara" */
+    position: relative;
+    top: 10px;
+}
+
+/* Ajustar a posição da div .form_frente sem afetar o "Login" */
+.form-control {
+    width: 40%;
+    font-size: 14px;
+    text-align: left;
+    margin: 0 auto;
+    margin-top: 20px;
+    height: 50%;
+    
+}
+
+.center-input {
+    display: flex;
+    justify-content: center;
+}
+
+.form_frente {
+    text-align: center;
+    padding: 200px -200px; /* Reduzir o preenchimento */
+    box-shadow: 0 0 10px rgba(2, 0, 0, 0.2);
+    color: #ffffff;
+    background-color: #161D2D; /* Fundo transparente */
+    border: none; /* Remove a borda */
+    padding: 0; /* Sem preenchimento */
+    height: 400px;
+    width: 32%; /* Ajuste a largura desejada */
+  
+    border-radius: 18px;
+
+    margin-left: 500px;
+}
+ 
+.login-header {
+    text-align: center;
+    color: #fff;
+    text-align: center;
+    margin-top: 100px;
+}
+.custom-width {
+    width: 50vw; /* Ajuste a largura conforme necessário com unidade vw (viewport width) */
+    margin-left: 50%; /* Move metade para a esquerda para centralizar */
+    margin-top: 85px;
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+}
+
+.btn-primary {
+    background-color: #004182;
+    color: #fff;
+    border: 2px solid #6289b4;
+}
+
+.btn-primary:hover {
+    background-color: #007bff;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+/* Mensagens de sucesso em verde */
+.flash_sucesso {
+    color: green;
+}
+
+/* Mensagens de erro em vermelho */
+.flash_erro {
+    color: red;
+}
