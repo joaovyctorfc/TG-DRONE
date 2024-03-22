@@ -196,21 +196,6 @@ def objetivo():
         flash('Ocorreu um erro na página de Objetivo.')
         return redirect('/')
 
-@app.route('/sobre', methods=['POST', 'GET'])
-def sobre():
-    try:
-        if 'logged_in' in session and session['logged_in']:
-            user_email = session['user_email']  
-            user_nome = session['user_nome']  
-
-            return render_template('sobre.html', user_email=user_email, user_nome=user_nome)
-        else:
-            return redirect('/')
-    except Exception as e:
-        # Trate ou registre o erro conforme necessário
-        print(f"Erro na rota /sobre: {e}")
-        flash('Ocorreu um erro na página de Sobre.')
-        return redirect('/')
 
 
 

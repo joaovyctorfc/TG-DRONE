@@ -4,20 +4,20 @@ body {
 }
 
 #content {
-    margin-top: 10px;
+    margin-top: 20px; /* Aumento do espaçamento superior */
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 80vh; /* Altere o valor conforme necessário para diminuir o tamanho */
+    min-height: 80vh;
     background: linear-gradient(#0e1525, #0e1525);
 }
 
 #container {
-    
-  background-color: #f0f8ff;
-  border-radius: 20px;
-  padding: 18px;
-  box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
+    background-color: #0e1525;
+    padding: 16px; /* Aumento do preenchimento */
+    width: 95%; /* Aumento da largura */
+    max-width: 450px; /* Ajuste da largura máxima */
+    margin: 0 auto; /* Centralizando o contêiner na página */
 }
 
 /* Alterar a cor do link para uma tonalidade mais clara */
@@ -29,112 +29,131 @@ body {
 }
 
 #search {
-
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 8px; /* Aumento do espaçamento entre os elementos */
     border: 1px solid #bdbdbd;
     border-radius: 10px;
-    padding: 4px 12px;
-
+    padding: 10px 14px; /* Aumento do preenchimento */
+    color: #fff;
+    
 }
+
 #search input {
     border: none;
     background-color: transparent;
-    font-size: 16px;
+    font-size: 18px; /* Aumento do tamanho da fonte */
     width: 100%;
-
- 
-
+    color: #fff;
 }
-#search input :focus-visible{
+
+#search input:focus-visible {
     outline: none;
+    color: #fff;
+
 }
-#search button{
+
+#search button {
     background-color: transparent;
     border: none;
     cursor: pointer;
+    color: #fff;
 }
-#weather{
+
+#weather {
     display: none;
-    margin-top: 20px;
+    margin-top: 20px; /* Aumento do espaçamento superior */
+    background-color: #0e1525;
+
 
 }
-#weather.show{
+
+#weather.show {
     display: block;
+    background-color: #0e1525;
+
 }
-#weather #title{
+
+#weather #title {
     text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: 12px; /* Aumento do espaçamento inferior */
     font-weight: 600;
-    color: #372f3f;
+    color: #fff;
+    font-size: 20px; /* Aumento do tamanho da fonte */
+    background-color: 0e1525;
+}
 
+#temp {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 12px; /* Aumento do espaçamento entre os elementos */
+    background: linear-gradient(90deg,#0e1525,#0e1525);
+    color: #fff;
+    padding: 25px; /* Aumento do preenchimento */
+    background-color: #0e1525;
 }
-#temp{
-display: flex;
-align-items: center;
-justify-content: space-around;
-gap: 20px;
-background: linear-gradient(90deg,#5a7cdc,#606dde);
-color: #fff;
-border-radius: 20px;
-padding: 20px;
 
+#temp_img {
+    padding: 18px;
+    background-color: #0e1525;
 }
-#temp_img{
-    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.2));
-}
-#temp_value{
+
+#temp_value {
     font-weight: bold;
-    font-size: 50px;
-    line-height: 55px;
+    font-size: 24px; /* Aumento do tamanho da fonte */
+    line-height: 28px; /* Ajuste da altura da linha */
 }
-#temp_description{
+
+#temp_description {
     font-weight: 500;
     text-transform: capitalize;
-
+    font-size: 18px; /* Aumento do tamanho da fonte */
 }
-#other_infos{
-    margin-top: 30px;
+
+#other_infos {
+    margin-top: 20px; /* Aumento do espaçamento superior */
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 12px; /* Aumento do espaçamento entre os elementos */
+    background-color: #0e1525;
 }
 
-#other_infos .info{
+#other_infos .info {
     display: flex;
     align-items: center;
     justify-content: start;
-    padding: 4px 10px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
-    background-color: #fff;
-    gap: 10px
-
+    padding: 12px; /* Aumento do preenchimento */
+   
+    background-color: #0e1525;
+    color: #fff;
+    gap: 10px; /* Aumento do espaçamento entre os elementos */
 }
 
-#other_infos .info h2{
-font-size: 12px;
-font-weight: 600;
-
-
+#other_infos .info h2 {
+    font-size: 16px; /* Aumento do tamanho da fonte */
+    font-weight: 600;
+    color: #fff;
 }
 
-#other_infos .info i{
+#other_infos .info i {
     text-align: center;
-    font-size: 20px;
+    font-size: 22px; /* Aumento do tamanho da fonte */
     width: 20%;
 }
-#temp_max_icon{
+
+#temp_max_icon {
     color: #7f1d1d;
 }
-#temp_min_icon{
+
+#temp_min_icon {
     color: #0284c7;
 }
-#humidity_icon{
+
+#humidity_icon {
     color: #0ea5e9;
 }
 
-#wind_icon{
+#wind_icon {
     color: #7c3aed;
 }
