@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template, redirect, flash,session
 import requests
 import json,re
+from Perfil import perfil
 from Cadastrar import cadastrar 
 from flask_mail import Mail, Message
 ##import serial
@@ -14,7 +15,7 @@ bcrypt = Bcrypt(app)
 link = "https://reconview-1410a-default-rtdb.firebaseio.com/"
 @app.route('/')
 def retorno():
-    return render_template('login.html')
+    return render_template('tela_login.html')
     
 
 
@@ -40,8 +41,12 @@ def login():
                         session['logged_in'] = True
                         session['user_email'] = email
                         session['user_nome'] = usuario.get('nome')
+                        session['user_sobrenome'] = usuario.get('sobrenome')
+                        session['user_celular'] = usuario.get('celular')
 
-                        return render_template('usuario.html', user_email=email, user_nome=usuario.get('nome'))
+
+
+                        return render_template('tela_principal.html', user_email=email, user_nome=usuario.get('nome'),user_sobrenome=usuario.get('sobrenome'),user_celular=usuario.get('celular'))
                     else:
                         flash('Senha incorreta.')
                         return redirect('/')
@@ -106,7 +111,7 @@ def home():
             user_email = session['user_email']  
             user_nome = session['user_nome']  
 
-            return render_template('usuario.html', user_email=user_email, user_nome=user_nome)
+            return render_template('tela_principal.html', user_email=user_email, user_nome=user_nome)
         else:
             return redirect('/')
     except Exception as e:
@@ -148,19 +153,19 @@ def chat():
         flash('Ocorreu um erro na página de ChatBot.')
         return redirect('/')
 
-@app.route('/nos', methods=['POST', 'GET'])
-def nos():
+@app.route('/sobre', methods=['POST', 'GET'])
+def sobre():
     try:
         if 'logged_in' in session and session['logged_in']:
             user_email = session['user_email']  
             user_nome = session['user_nome']  
 
-            return render_template('nos.html', user_email=user_email, user_nome=user_nome)
+            return render_template('sobre.html', user_email=user_email, user_nome=user_nome)
         else:
             return redirect('/')
     except Exception as e:
         # Trate ou registre o erro conforme necessário
-        print(f"Erro na rota /nos: {e}")
+        print(f"Erro na rota /sobre: {e}")
         flash('Ocorreu um erro na página de Sobre nós.')
         return redirect('/')
 
@@ -237,7 +242,7 @@ def gerar_codigo():
 @app.route('/senha')
 def redefinicao_senha():
     try:
-                 return render_template('Email.html')
+                 return render_template('tela_esqueceu.html')
     
     except Exception as e:
         # Trate ou registre o erro conforme necessário
@@ -331,7 +336,23 @@ def atualizar_senha():
         print(f"Erro na rota /atualizar_senha: {e}")
         flash('Ocorreu um erro ao atualizar a senha.')
         return render_template('redefinicao_senha.html')
+    
+@app.route('/perfil', methods=['GET', 'POST'])
+def perfil_rota():
+    try:
+        if 'logged_in' in session and session['logged_in']:
+            user_email = session['user_email']  
+            user_nome = session['user_nome']  
 
+            # Chama a função perfil() passando o email e nome do usuário
+            return perfil(user_email, user_nome)
+        else:
+            return redirect('/home')
+    except Exception as e:
+        # Trate ou registre o erro conforme necessário
+        print(f"Erro na rota /perfil: {e}")
+        flash('Ocorreu um erro na página de perfil.')
+        return redirect('/home')
 
 ##ser = serial.Serial('/dev/ttyACM0', 9600)
 

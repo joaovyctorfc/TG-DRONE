@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!-- Fonts -->
+    <!-- boostrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- boostrap -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/tela_principal.css')}}" />
+    <title>Home</title>
+    <script >
+        window.addEventListener('DOMContentLoaded', function() {
+    var footerTop = document.querySelector('footer').offsetTop;
+    var formTop = document.querySelector('.formulario').offsetTop;
+    var chatButton = document.querySelector('.chat-btn');
+
+    function adjustChatButtonPosition() {
+        var scrollPosition = window.scrollY;
+        if (window.innerWidth <= 1020) {
+            // Para telas de até 1020px, o botão de chat para antes do formulário "Fale Conosco"
+            if (scrollPosition >= formTop - window.innerHeight) {
+                chatButton.style.bottom = (scrollPosition - formTop + window.innerHeight + 20) + 'px';
+            } else {
+                chatButton.style.bottom = '20px';
+            }
+        } else {
+            // Para telas maiores que 1020px, o botão de chat para no rodapé
+            if (scrollPosition >= footerTop - window.innerHeight) {
+                chatButton.style.bottom = (scrollPosition - footerTop + window.innerHeight + 20) + 'px';
+            } else {
+                chatButton.style.bottom = '20px';
+            }
+        }
+    }
+
+    window.addEventListener('scroll', adjustChatButtonPosition);
+});
+    </script>
+    <script >
+        let btnMenu = document.getElementById('btn-menu')
+        let menu = document.getElementById('menu-mobile')
+        let overlay = document.getElementById('overlay-menu')
+        
+        btnMenu.addEventListener('click',() => {
+            menu.classList.add('abrir-menu')
+        })
+        
+        menu.addEventListener('click',() => {
+            menu.classList.remove('abrir-menu')
+        })
+        
+        overlay.addEventListener('click',() => {
+            menu.classList.remove('abrir-menu')
+        })</script>
+</head>
+
+<body>
+
+    <header>
+        <div class="interface">
+            <div class="logo">
+                <a href="#">
+                    <img src="{{ url_for('static', filename='css/Imgs/logo.png') }}"  alt="Logo" width="150px">
+                </a>
+            </div>
+
+            <nav class="menu-desktop">
+                <ul>
+                    <li><a href="/home">Início</a></li>
+                    <li><a href="/objetivo">Objetivo</a></li>
+                    <li><a href="nos">Sobre</a></li>
+                    <li><a href="/tempo">Clima</a></li>
+                    <li><a href="#">Biblioteca</a></li>
+                    <li><a href="/perfil">Perfil</a></li>
+                </ul>
+            </nav>
+
+            <div class="btn-contato">
+                <a href="#">
+                    <button>Contato</button>
+                </a>
+            </div>
+
+            <div class="btn-abrir-menu" id="btn-menu">
+                <i class="bi bi-list"></i>
+            </div>
+            
+            <div class="menu-mobile" id="menu-mobile">
+                <div class="btn-fechar">
+                    <i class="bi bi-x-lg"></i>
+                </div>
+
+                <nav>
+                    <ul>
+                        <li><a href="/home">Início</a></li>
+                        <li><a href="/objetivo">Objetivo</a></li>
+                        <li><a href="nos">Sobre</a></li>
+                        <li><a href="/tempo">Clima</a></li>
+                        <li><a href="#">Biblioteca</a></li>
+                        <li><a href="/perfil">Perfil</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="overlay-menu" id="overlay-menu">
+                <!--s-->
+            </div>
+
+
+        </div><!---Interface-->
+    </header>
+
+    <main>
+        <section class="topo-do-site">
+            <div class="interface">
+                <div class="flex">
+                    <div class="txt-topo-site">
+                        <h1>ANALISANDO ATRAVÉS DE VÍDEOS<span>.</span></h1>
+                        <p>O site funciona como uma biblioteca virtual,Guardando vídeos diversos para análise e estudo.
+                            Nele, os vídeos são cuidadosamente arquivados,Prontos para serem explorados e analisados com
+                            rigor.</p>
+
+                        <div class="btn-contato">
+                            <a href="#">
+                                <button>Entre em contato</button>
+                            </a>
+
+                        </div><!--btn-contato-->
+
+                    </div><!--txt-topo-site-->
+
+                    <div class="img-top-site">
+
+                        <img src="{{ url_for('static', filename='css/Imgs/imagens/drone-voando.png') }}" alt="" width="500">
+
+                    </div><!--img-topo-site-->
+
+                </div><!--flex-->
+            </div><!--interface-->
+        </section><!--topo do site-->
+
+
+
+        <section class="objetivo">
+            <div class="interface">
+                <h2 class="titulo">NOSSOS <span>OBJETIVOS.</span></h2>
+                <div class="flex">
+                    <div class="objetivos-box">
+                        <i class="bi bi-collection"></i>
+                        <h3>Biblioteca</h3>
+                        <p>Uma biblioteca digital para que você possa armazenar seus vídeos, sem ter que se preocupar
+                            com espaço.</p>
+                    </div><!--objetivos-box-->
+
+                    <div class="objetivos-box">
+                        <i class="bi bi-search"></i>
+                        <h3>Analise</h3>
+                        <p>Realize analises através de vídeos kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</p>
+                    </div><!--objetivos-box-->
+
+                    <div class="objetivos-box">
+                        <i class="bi bi-chat-left"></i>
+                        <h3>Comunidade</h3>
+                        <p>Futuramente esperamos acrescentar no site uma rede social, para compartilharmos experiências
+                            e objetivos.</p>
+                    </div><!--objetivos-box-->
+                </div><!--flex-->
+            </div><!--interface-->
+        </section><!--objetivos-->
+
+
+
+        <section class="sobre">
+            <div class="interface">
+                <div class="flex">
+
+                    <div class="img-sobre">
+                        <img src="{{ url_for('static', filename='css/Imgs/imagens/vanderlei.jpeg') }}"alt="" width="415px">
+                    </div><!--img-sobre-->
+                    <div class="txt-sobre">
+                        <h2>MUITO PRAZER, <span>SOU VANDERLEI HENRIQUE.</span></h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem pariatur quaerat debitis
+                            sit veritatis. Laboriosam quam a possimus ipsam, tenetur dolore omnis, vitae iusto vel saepe
+                            ipsum consequuntur numquam fugiat?</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facere non cum explicabo fugiat
+                            sed tempora adipisci molestias, et, ex voluptate molestiae quod blanditiis pariatur! Ipsum
+                            sit eos corrupti quia?</p>
+                        <div class="btn-social">
+                            <a href=""><button><i class="bi bi-linkedin"></i></button></a>
+                            <a href=""><button><i class="bi bi-facebook"></i></button></a>
+                            <a href=""><button><i class="bi bi-instagram"></i></button></a>
+                        </div><!--btn-social-->
+                    </div><!--txt-sobre-->
+
+                    <div class="img-sobre">
+                        <img src="{{ url_for('static', filename='css/Imgs/imagens/joão.jpeg') }}"alt="" width="415px">
+                    </div><!--img-sobre-->
+                    <div class="txt-sobre">
+                        <h2>MUITO PRAZER, <span>SOU JOÃO VYCTOR.</span></h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem pariatur quaerat debitis
+                            sit veritatis. Laboriosam quam a possimus ipsam, tenetur dolore omnis, vitae iusto vel saepe
+                            ipsum consequuntur numquam fugiat?</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facere non cum explicabo fugiat
+                            sed tempora adipisci molestias, et, ex voluptate molestiae quod blanditiis pariatur! Ipsum
+                            sit eos corrupti quia?</p>
+                        <div class="btn-social">
+                            <a href=""><button><i class="bi bi-linkedin"></i></button></a>
+                            <a href=""><button><i class="bi bi-facebook"></i></button></a>
+                            <a href=""><button><i class="bi bi-instagram"></i></button></a>
+                        </div><!--btn-social-->
+                    </div><!--txt-sobre-->
+
+                    <div class="img-sobre">
+                        <img src="{{ url_for('static', filename='css/Imgs/imagens/breno.jpeg') }}" alt="" width="415px">
+                    </div><!--img-sobre-->
+                    <div class="txt-sobre">
+                        <h2>MUITO PRAZER, <span>SOU BRENO.</span></h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem pariatur quaerat debitis
+                            sit veritatis. Laboriosam quam a possimus ipsam, tenetur dolore omnis, vitae iusto vel saepe
+                            ipsum consequuntur numquam fugiat?</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facere non cum explicabo fugiat
+                            sed tempora adipisci molestias, et, ex voluptate molestiae quod blanditiis pariatur! Ipsum
+                            sit eos corrupti quia?</p>
+                        <div class="btn-social">
+                            <a href=""><button><i class="bi bi-linkedin"></i></button></a>
+                            <a href=""><button><i class="bi bi-facebook"></i></button></a>
+                            <a href=""><button><i class="bi bi-instagram"></i></button></a>
+                        </div><!--btn-social-->
+                    </div><!--txt-sobre-->
+
+                </div><!--flex-->
+            </div><!--interface-->
+        </section><!--sobre-->
+
+
+
+        <section class="formulario">
+            <div class="interface">
+                <h2 class="titulo">FALE <span>CONOSCO.</span></h2>
+
+
+                <form action="">
+                    <input type="text" name="" id="" placeholder="Seu nome completo:" required>
+                    <input type="text" name="" id="" placeholder="Seu e-mail" required>
+                    <input type="text" name="" id="" placeholder="Seu celular:">
+                    <textarea name="" id="" placeholder="Sua Mensagem" required></textarea>
+                    <div class="btn-enviar"><input type="submit" value="ENVIAR"></div>
+
+                </form>
+            </div><!--interface-->
+        </section><!--Formulátiro-->
+    </main>
+
+    <footer>
+        <div class="interface">
+
+            <div class="line-footer">
+                <div class="flex">
+                </div>
+            </div>
+
+
+            <div class="line-footer borda">
+                <div class="logo-footer">
+                    <img src="{{ url_for('static', filename='css/Imgs/logo.png') }}" alt="logotipo" width="150">
+                </div>
+                <div class="footer-text">
+                    <p><i class="bi bi-envelope"></i> <a href="mailto:vanderjr29@gmail.com">vanderjr29@gmail.com</a></p>
+                    <p><i class="bi bi-envelope"></i> <a href="mailto:contato@joão.com">contato@joão.com</a></p>
+                    <p><i class="bi bi-envelope"></i> <a href="mailto:contato@breno.com">contato@breno.com</a></p>
+                </div>
+            </div>
+
+            <div class="chat-btn">
+                <a href="#">
+                    <img src="{{ url_for('static', filename='css/Imgs/imagens/chat.svg') }}" alt="Chat">
+                </a>
+            </div>
+
+        </div><!--interface-->
+    </footer>
+
+
+
+
+</body>
+
+</html>

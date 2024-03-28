@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IT=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/tela_perfil.css')}}" />
+    <title>Perfil</title>
+</head>
+
+<header>
+    <div class="interface">
+      <div class="logo">
+         <a href="#">
+            <img src="{{ url_for('static', filename='css/Imgs/logo.png') }}"  alt="Logo" width="75px">
+         </a>
+     </div>
+ 
+         <nav class="menu-desktop">
+            <ul>
+                <li><a href="/home">Início</a></li>
+                <li><a href="/objetivo">Objetivo</a></li>
+                <li><a href="nos">Sobre</a></li>
+                <li><a href="/tempo">Clima</a></li>
+                <li><a href="#">Biblioteca</a></li>
+                <li><a href="/perfil">Perfil</a></li>
+            </ul>
+         </nav>
+ 
+         <div class="btn-contato">
+             <a href="#">
+                 <button>Contato</button>
+             </a>
+         </div>
+    </div>
+ </header>
+<body>
+    
+    <div class="container">
+        <div class="imagem">
+            <label class="picture" for="picture__input" tabIndex="0">
+                <span class="picture__image"></span>
+              </label>
+              
+              <input type="file" name="picture__input" id="picture__input">
+        </div>
+        <div class="form">
+            <form action="#">
+                <div class="form-header">
+                    <div class="title">
+                        <h1>Perfil</h1>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="firstname">Primeiro nome</label>
+                        <input id= "firstname" type="text" name="firstname" placeholder="Digite seu primeiro nome" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="lastname">Sobrenome</label>
+                        <input id= "lastname" type="text" name="lastname" placeholder="Digite seu Sobrenome" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="email">Email</label>
+                        <input id= "email" type="email" name="email" placeholder="Digite seu Email" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="number">Celular</label>
+                        <input id= "number" type="tel" name="number" placeholder="(xx) xxxx-xxxx" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="password">Senha</label>
+                        <input id= "password" type="password" name="password" placeholder="Digite sua senha" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="password">Confirme sua senha</label>
+                        <input id= "password" type="password" name="confirmpassword" placeholder="Digite sua sonha" required>
+                    </div>
+                </div>
+                <div class="continue-button">
+                    <button><a href="#">Alterar</a></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script >
+        const inputFile = document.querySelector("#picture__input");
+const pictureImage = document.querySelector(".picture__image");
+const pictureImageTxt = "Choose an image";
+pictureImage.innerHTML = pictureImageTxt;
+
+inputFile.addEventListener("change", function (e) {
+  const inputTarget = e.target;
+  const file = inputTarget.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+
+    reader.addEventListener("load", function (e) {
+      const readerTarget = e.target;
+
+      const img = document.createElement("img");
+      img.src = readerTarget.result;
+      img.classList.add("picture__img");
+
+      pictureImage.innerHTML = "";
+      pictureImage.appendChild(img);
+    });
+
+    reader.readAsDataURL(file);
+  } else {
+    pictureImage.innerHTML = pictureImageTxt;
+  }
+});
+
+    </script>
+
+</body>
+</html>

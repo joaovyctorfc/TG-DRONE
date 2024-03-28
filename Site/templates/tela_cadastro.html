@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IT=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/tela_cadastro.css')}}" />
+    <title> Cadastro</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class ='imagem'> 
+        <img src="{{ url_for('static', filename='css/Imgs/drone-bro.svg') }}" >
+    </div>
+        <div class="form">
+           
+                
+                <div class="form-header">
+                    <div class="title">
+                        <h1>Cadastre-se</h1>
+                    </div>
+                 
+                </div>
+                <form action="/cadastrar" id="cadastrar" method="POST">
+
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="firstname">Primeiro nome</label>
+                        <input id= "firstname" type="text" name="nome" placeholder="Digite seu primeiro nome" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="lastname">Sobrenome</label>
+                        <input id= "lastname" type="text" name="sobrenome" placeholder="Digite seu Sobrenome"required >
+                    </div>
+                    <div class="input-box">
+                        <label for="email">Email</label>
+                        <input id= "email" type="email" name="email" placeholder="Digite seu Email" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="number">Celular</label>
+                        <input id= "number" type="tel" name="celular" placeholder="(xx) xxxxx-xxxx" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="password">Senha</label>
+                        <input id= "password" type="password" name="senha" placeholder="Digite sua senha"required >
+                    </div>
+                    <div class="input-box">
+                        <label for="password">Confirme sua senha</label>
+                        <input id= "password" type="password" name="senha1" placeholder="Digite sua senha" required>
+                    </div>
+                </div>
+                <div class="continue-button">
+                    <button type="submit" >Cadastrar</a></button>
+                    <button type="button"onclick="window.location.href='/'" >Voltar</a></button>
+
+                </div>
+                {% set mensagem = get_flashed_messages() %}
+                {% if mensagem %}
+                    <div class="flash_alerta {% if 'cadastrado com sucesso' in mensagem[0] %}flash_sucesso{% else %}flash_erro{% endif %}"style="margin-top: 8px;">
+                        {{ mensagem[0] }}
+                    </div>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

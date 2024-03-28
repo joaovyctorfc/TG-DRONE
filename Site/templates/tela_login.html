@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IT=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/tela_login.css')}}" />
+    <title>Login</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="imagem">
+            <img src="{{ url_for('static', filename='css/Imgs/time-drone.svg') }}" >
+            </div>
+        <div class="form">
+            <form action="/login" id="login" method="POST">
+                <div class="form-header">
+                    <div class="title">
+                        <h1>Login</h1>
+                    </div>
+                </div>
+    
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="Email">Email</label>
+                        <input id= "inputEmail4" type="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="Senha">Senha</label>
+                        <input id= "inputPassword4" type="password" name="senha" placeholder="Senha" required>
+                    </div>
+                </div>
+             
+                <div class="continue-button">
+                    <button type="submit" >Entrar</a></button>
+                </div>
+    
+                <div class="button-group">
+                    <p><a href="cadastrar" class="link-clara">Criar Conta</a></p>
+                    <p><a href="senha" class="link-clara">Esqueceu a senha?</a></p>
+                    
+                </div>
+             
+             
+            </form>
+            {% set mensagem = get_flashed_messages() %}
+            {% if mensagem %}
+                <div class="flash_alerta" style="color: red;margin-top: 8px;">
+                    {{ mensagem[0] }}
+                </div>
+            {% endif %} 
+        </div>
+
+    </div>
+ 
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IT=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/tela_esqueceu.css')}}" />
+    <title>Recuperar senha</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="imagem">
+            <img src="{{ url_for('static', filename='css/Imgs/drone.svg') }}" >
+        </div>
+        <div class="form">
+        
+            <form action="/atualizar_senha" method="post">
+                <div class="form-header">
+                    <div class="title">
+                        <h1>Recuperar Senha</h1>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="email">E-mail</label>
+                        <input id= "email" type="email" name="email" placeholder="Digite seu Email" required>
+                    </div>
+                </div>
+                <div class="continue-button">
+                    <button type="submit" >Enviar</a></button>
+                    <button type="button"onclick="window.location.href='/'" >Voltar</a></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% set mensagem = get_flashed_messages() %}
+    {% if mensagem %}
+        <div class="flash_alerta {% if 'Senha atualizada com sucesso!' in mensagem[0] %}flash_sucesso{% else %}flash_erro{% endif %}"style="margin-top: 10px;">
+            {{ mensagem[0] }}
+        </div>
+    {% endif %}
+</body>
+</html>
