@@ -1,4 +1,3 @@
-
 from flask import Flask, request, render_template, redirect, flash
 import requests
 import json
@@ -16,7 +15,7 @@ def retorno():
     try:
         return render_template('tela_login.html')
     except Exception as e:
-        # Trate ou registre o erro conforme necessário
+
         print(f"Erro na rota /: {e}")
         flash('Ocorreu um erro durante a exibição da página de login.')
         return render_template('tela_login.html')
