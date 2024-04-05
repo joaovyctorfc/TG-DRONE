@@ -15,6 +15,7 @@ body {
     align-items: center;
     background: #E8EAED;
 }
+
 .flash_sucesso {
     color: green; /* Cor verde para mensagens de sucesso */
 }
@@ -27,11 +28,11 @@ body {
     width: 90%;
     height: 95vh;
     display: flex;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, .212)
+    box-shadow: 5px 5px 10px rgba(124, 117, 117, 0.212)
 }
 
 .imagem{
-    width: 35%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,29 +58,6 @@ body {
     margin-bottom: 5rem;
     display: flex;
     justify-content: space-between;
-}
-
-.login-button {
-    display: flex;
-    align-items: center;
-}
-
-.login-button button {
-    border: none;
-    background-color: #0C8CE9;
-    padding: 0.4rem 1rem;
-    border-radius: 50px;
-    cursor: pointer;
-}
-
-.login-button button:hover {
-    background-color: #E8EAED;
-}
-
-.login-button button a {
-    text-decoration: none;
-    font-weight: 500;
-    color: white;
 }
 
 .form-header h1::after{
@@ -129,30 +107,51 @@ body {
     color: #000000c0;
 }
 
-.continue-button button {
+.cadastro-btn {
+    color: white;
     width: 30%;
-    margin-top: 2.5rem;
     border: none;
     background-color: #0C8CE9;
     padding: 0.62rem;
     border-radius: 50px;
     cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    margin-bottom: 0.2rem;
 }
 
-.continue-button{
-    transition: color 0.3s ease-in-out;
+
+.continue-button {
+    display: flex;
+    flex-direction: column; /* Altera a direção do flex para empilhar verticalmente */
+    align-items: center; /* Centraliza os botões na horizontal */
+    margin-top: 2.5rem;
 }
 
-.continue-button button:hover {
-    background-color: #E8EAED;
+.cadastro-btn:hover {
+    background-color: #0a73c2;
 }
 
-.continue-button button a {
+.cadastro-btn a {
     text-decoration: none;
     font-size: 0.93rem;
     font-weight: 500;
     color: white;
 }
+
+.voltar-btn {
+    background-color: transparent; /* Remove o fundo */
+    color: #0C8CE9;
+    border: none; /* Remove a borda */
+    width: auto;
+    cursor: pointer;
+    padding: 0.62rem 1.5rem;
+    margin-bottom: 0;
+}
+
+.voltar-btn:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
 
 @media screen and (max-width: 1330px){
     .form-image{

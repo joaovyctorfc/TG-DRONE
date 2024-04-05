@@ -575,6 +575,19 @@ footer .line-footer p a {
 
 /*  responsivo  */
 
+@media screen and (max-width: 767px) {
+    .sobre .container {
+        flex-direction: column;
+        align-items: flex-start; /* Alinha os itens à esquerda */
+        justify-content: flex-start;
+    }
+
+    .sobre .container .card {
+        margin-bottom: 20px; /* Adiciona espaçamento entre os containers */
+
+    }
+}
+
 @media screen and (max-width: 1020px) {
 
     /* classes gerais */
@@ -626,6 +639,10 @@ footer .line-footer p a {
 
     /* estilo sobre */
 
+    .container {
+        flex-direction: column;
+    }
+
     section.sobre {
         padding: 40px 8%;
     }
@@ -657,10 +674,14 @@ footer .line-footer p a {
 
     /* chat */
 
+    footer {
+        position: relative; /* Adicione o posicionamento relativo para permitir o posicionamento absoluto do botão */
+    }
+
     .chat-btn {
-        position: fixed;
-        bottom: 20px;
-        right: 20px; /* ajustado para manter o botão à direita */
+        position: absolute;
+        top: -30px; /* Ajuste conforme necessário para alinhar com o line-footer superior */
+        right: 20px; /* Ajuste conforme necessário para alinhar com o line-footer */
         background-color: #007bff;
         width: 60px;
         height: 60px;
@@ -669,10 +690,27 @@ footer .line-footer p a {
         justify-content: center;
         align-items: center;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        max-height: calc(100vh - 100px);
-        transition: max-height 0.5s ease;
-        z-index: 999; /* garantir que o botão esteja sobre outros elementos */
+        z-index: 2; /* Garanta que o botão esteja acima dos outros elementos no footer */
     }
+
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .line-footer {
+        padding: 20px 0;
+        border-bottom: 2px solid black;
+        display: flex;
+        align-items: center;
+        position: relative; /* Adicione posicionamento relativo */
+    }
+    
+    .logo-footer img {
+        margin-right: 20px;
+    }
+    
 
     .formulario {
         margin-top: 50px; /* Adicione a margem superior desejada */

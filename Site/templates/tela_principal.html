@@ -88,7 +88,7 @@
                     <button>Contato</button>
                 </a>
                 <a href="/">
-                    <button class="sair" >Sair</button>
+                    <button class="sair" ><i class="bi bi-door-closed"></i></button>
                 </a>
             </div>
 
@@ -243,13 +243,18 @@
 
     <footer>
         <div class="interface">
-
+    
             <div class="line-footer">
                 <div class="flex">
+                    <!-- Coloque o botão chat-btn aqui dentro -->
+                    <div class="chat-btn">
+                        <a href="#">
+                            <img src="{{ url_for('static', filename='css/Imgs/imagens/chat.svg') }}" alt="Chat">
+                        </a>
+                    </div>
                 </div>
             </div>
-
-
+    
             <div class="line-footer borda">
                 <div class="logo-footer">
                     <img src="{{ url_for('static', filename='css/Imgs/logo.png') }}" alt="logotipo" width="150">
@@ -260,15 +265,10 @@
                     <p><i class="bi bi-envelope"></i> <a href="mailto:contato@breno.com">contato@breno.com</a></p>
                 </div>
             </div>
-
-            <div class="chat-btn">
-                <a href="#">
-                    <img src="{{ url_for('static', filename='css/Imgs/imagens/chat.svg') }}" alt="Chat">
-                </a>
-            </div>
-
+    
         </div><!--interface-->
     </footer>
+    
 
 
 
