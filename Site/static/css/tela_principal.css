@@ -21,6 +21,7 @@ body {
 }
 
 .btn-contato button {
+    margin-right: 10px;
     padding: 10px 40px;
     font-size: 18px;
     font-weight: 600;
@@ -108,6 +109,21 @@ header nav ul {
 header nav.menu-desktop ul li{
     display: inline-block;
     padding: 0 20px;
+}
+
+.sair {
+    background-color: gray !important;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sair:hover {
+    background-color: red !important; /* Altera a cor para vermelho quando passa o mouse */
 }
 
 /* estilo menu mobile */
@@ -372,9 +388,9 @@ section.sobre {
     align-items: center;
     width: 100%;
     padding: 1rem;
-    transition: transform 0.5s ease-in-out; /* Transição mais suave */
+    transition: transform 0.5s ease-in-out;
     z-index: 1;
-  }
+}
   
   .sobre .content {
     transform: translateY(calc(100% - 4.5rem));
@@ -454,12 +470,26 @@ section.sobre {
     z-index: 2;
     margin-bottom: 1rem;
   }
-  
-  .sobre .text {
-    font-size: 1rem;
-    line-height: 1.8rem;
+
+  .sobre .btn-sobre {
+    position: absolute;
+    bottom: 70px; /* Ajuste a posição vertical conforme necessário */
+    left: 50%; /* Ajuste a posição horizontal conforme necessário */
+    transform: translateX(-50%); /* Centralize o botão horizontalmente */
+    background-color: #2093FF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
     z-index: 2;
-  }
+}
+
+.sobre .btn-sobre:hover {
+    background-color: #007bff;
+}
   
 
 /* estilo formulário */
@@ -485,13 +515,13 @@ form textarea {
     outline: 0;
     padding: 20px 15px;
     border-radius: 15px;
-    color: black;
+    color: white;
     font-size: 18px;
 }
 
 form input::placeholder,
 form textarea::placeholder {
-    color: black; /* Defina a cor desejada para o placeholder */
+    color: white;
 }
 
 form textarea {
@@ -567,6 +597,7 @@ footer .line-footer p a {
     .menu-desktop,
     .btn-contato {
         display: none;
+        margin-right: 10px;
     }
 
     /* topo-do-site */
