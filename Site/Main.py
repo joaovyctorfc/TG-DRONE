@@ -40,13 +40,11 @@ def login():
                     if senha_criptografada and bcrypt.check_password_hash(senha_criptografada, senha):
                         session['logged_in'] = True
                         session['user_email'] = email
-                        session['user_nome'] = usuario.get('nome')
-                        session['user_sobrenome'] = usuario.get('sobrenome')
-                        session['user_celular'] = usuario.get('celular')
+                        
 
 
 
-                        return render_template('tela_principal.html', user_email=email, user_nome=usuario.get('nome'),user_sobrenome=usuario.get('sobrenome'),user_celular=usuario.get('celular'))
+                        return render_template('tela_principal.html')
                     else:
                         flash('Senha incorreta.')
                         return redirect('/')

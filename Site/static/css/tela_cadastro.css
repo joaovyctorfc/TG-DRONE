@@ -31,7 +31,7 @@ body {
 }
 
 .imagem{
-    width: 50%;
+    width: 35%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,19 +82,6 @@ body {
     color: white;
 }
 
-.continue-button {
-    display: flex;
-    justify-content: center; /* Alinha os itens horizontalmente ao centro */
-    margin-top: 20px; /* Adiciona um espaço acima dos botões */
-}
-
-.continue-button button {
-    margin: 0 5px; /* Adiciona um espaço entre os botões */
-    margin-right: 50px; /* Adiciona margem à direita de cada botão */
-    margin-left: 50px;
-}
-
-
 .form-header h1::after{
     content: '';
     display: block;
@@ -121,12 +108,11 @@ body {
 }
 
 .input-box input {
-    margin: 0.6rem 0; /* Remove a margem superior e inferior */
+    margin: 0.6rem 0;
     padding: 0.8rem 1.2rem;
     border: none;
     border-radius: 10px;
     box-shadow: 1px 1px 6px #0000001c;
-    width: calc(100% - 2.4rem); /* Calcula a largura do campo, levando em conta o preenchimento horizontal */
 }
 
 .input-box input:hover {

@@ -33,7 +33,7 @@ def cadastrar():
             senha_confirmacao = request.form.get('senha1')
 
             if not nome or not email or not senha or not senha_confirmacao or not sobrenome or not celular:
-                flash('Preencha todos os campos.')
+                pass
             elif "@" not in email or email.split("@")[1].split(".")[0] not in lista_provedores:
                 flash('Formato de email inválido')
             elif senha != senha_confirmacao:
