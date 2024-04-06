@@ -20,7 +20,7 @@ body {
     width: 85%;
     height: 90vh;
     display: flex;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, .212)
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .212);
 }
 
 .imagem  {
@@ -32,12 +32,9 @@ body {
     padding: 1rem;
 }
 
-
 .imagem img {
     width: 75rem;
 }
-
-
 
 .form {
     width: 50%;
@@ -55,42 +52,7 @@ body {
     justify-content: space-between;
 }
 
-
-.login-button {
-    display: flex;
-    align-items: center;
-}
-
-.login-button button {
-    border: none;
-    background-color: #0C8CE9;
-    padding: 0.4rem 1rem;
-    border-radius: 50px;
-    cursor: pointer;
-}
-
-.login-button button:hover {
-    background-color: #E8EAED;
-}
-
-.login-button button a {
-    text-decoration: none;
-    font-weight: 500;
-    color: white;
-}
-
-.form-header h1::after{
-    content: '';
-    display: block;
-    width: 5rem;
-    height: 0.3rem;
-    background-color: #0C8CE9;
-    margin: 0 auto;
-    position: absolute;
-    border-radius: 10px;
-}
-
-.input-group{
+.input-group {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -105,14 +67,13 @@ body {
 
 .input-box input {
     margin: 0.6rem 0;
-    padding: 1rem; /* Ajuste o preenchimento para aumentar a altura do campo */
+    padding: 1rem;
     border: none;
     border-radius: 10px;
     box-shadow: 1px 1px 6px #0000001c;
     width: 120%; 
-    height: 4rem; /* Defina a altura desejada */
+    height: 4rem;
 }
-
 
 .input-box input:hover {
     background-color: #eeeeee75;
@@ -122,22 +83,25 @@ body {
     outline: 1px solid #0C8CE9;
 }
 
-.input-boxlabel {
+.input-box label {
     font-size: 0.75rem;
     font-weight: 600;
     color: #000000c0;
 }
 
-.cadastro-btn {
+.cadastro-btn, .voltar-btn {
     color: white;
-    width: 30%;
     border: none;
-    background-color: #0C8CE9;
     padding: 0.62rem;
     border-radius: 50px;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
     margin-bottom: 1rem;
+}
+
+.cadastro-btn {
+    background-color: #0C8CE9;
+    width: 30%;
 }
 
 .cadastro-btn:hover {
@@ -154,7 +118,6 @@ body {
 .voltar-btn {
     background-color: transparent;
     color: #0C8CE9;
-    border: none;
     width: auto;
     padding: 0.62rem 1.5rem;
     margin-bottom: 0;
@@ -169,17 +132,28 @@ body {
     flex-direction: column;
     align-items: center;
     margin-top: 2.5rem;
-    
 }
 
 .continue-button button {
-    width: 40%; /* Ajusta a largura dos botões */
-    margin-bottom: 1rem; /* Adiciona espaçamento entre os botões */
+    width: 40%;
+    margin-bottom: 1rem;
     cursor: pointer;
 }
 
-.continue-button button:last-child {
-    margin-bottom: 0; /* Remove o espaçamento inferior do último botão */
+.continue-button .enviar-btn {
+    width: 40%;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.continue-button .enviar-btn:hover {
+    transform: scale(1.05);
+    background-color: #0a73c2;
+}
+
+.continue-button .enviar-btn:last-child {
+    margin-bottom: 0;
 }
 
 @media screen and (max-width: 1330px){
