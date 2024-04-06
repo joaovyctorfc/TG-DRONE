@@ -17,13 +17,13 @@ body {
 }
 
 .container {
-    width: 150%;
+    width: 90%;
     height: 80vh;
     display: flex;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, .212)
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .212);
 }
 
-.imagem{
+.imagem {
     width: 50%;
     display: flex;
     justify-content: center;
@@ -37,45 +37,22 @@ body {
 }
 
 .form {
-    width: 50%;
+    width: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background-color: #fff;
-    padding: 5rem;
+    padding: 3rem;
 }
 
 .form-header {
-    margin-bottom: 5rem;
-    display: flex;
-    justify-content: space-between;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
 }
 
-.login-button {
-    display: flex;
-    align-items: center;
-}
-
-.login-button button {
-    border: none;
-    background-color: #0C8CE9;
-    padding: 0.4rem 1rem;
-    border-radius: 50px;
-    cursor: pointer;
-}
-
-.login-button button:hover {
-    background-color: #E8EAED;
-}
-
-.login-button button a {
-    text-decoration: none;
-    font-weight: 500;
-    color: white;
-}
-
-.form-header h1::after{
+.form-header h1::after {
     content: '';
     display: block;
     width: 5rem;
@@ -83,27 +60,29 @@ body {
     background-color: #0C8CE9;
     margin: 0 auto;
     position: absolute;
-    border-radius: 10px;
+    bottom: 0px;
+    left: 0;
+    right: 0;
 }
 
-.input-group{
+.input-group {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 1rem 0;
+    width: 100%;
 }
 
 .input-box {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 0.8rem;
+    width: calc(50% - 1rem);
+    margin-bottom: 1.5rem;
 }
 
 .input-box input {
-    margin: 0.6rem 0;
-    padding: 0.8rem 1.2rem;
+    width: 100%;
+    margin: 0.8rem 0; /* Aumentando o espaçamento vertical */
+    padding: 1.2rem; /* Aumentando o preenchimento dos campos de entrada */
     border: none;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 1px 1px 6px #0000001c;
 }
 
@@ -115,57 +94,57 @@ body {
     outline: 1px solid #0C8CE9;
 }
 
-.input-boxlabel {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #000000c0;
+.continue-button {
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
 }
 
 .continue-button button {
-    width: 30%;
-    margin-top: 2.5rem;
+    width: 50%;
+    padding: 1rem;
     border: none;
     background-color: #0C8CE9;
-    padding: 0.62rem;
-    border-radius: 50px;
+    border-radius: 25px;
     cursor: pointer;
-}
-
-.continue-button{
-    transition: color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+    transition: transform 0.4s, background-color 0.4s;
 }
 
 .continue-button button:hover {
-    background-color: #E8EAED;
+    transform: scale(1.05);
+    background-color: #0a73c2;
 }
 
 .continue-button button a {
     text-decoration: none;
-    font-size: 0.93rem;
+    font-size: 1rem;
     font-weight: 500;
     color: white;
 }
 
-@media screen and (max-width: 1330px){
-    .form-image{
+@media screen and (max-width: 1330px) {
+    .form-image {
         display: none;
     }
 
-    .container{
+    .container {
         width: 50%;
     }
 
-    .form{
+    .form {
         width: 100%;
     }
 }
 
 @media screen and (max-width: 1064px) {
-    .container{
+    .container {
         width: 90%;
         height: auto;
     }
-    .input-group{
+
+    .input-group {
         flex-direction: column;
         overflow: scroll;
         flex-wrap: nowrap;
@@ -178,9 +157,9 @@ body {
 
 #picture__input {
     display: none;
-  }
-  
-  .picture {
+}
+
+.picture {
     width: 750px;
     aspect-ratio: 16/9;
     background: #ddd;
@@ -194,29 +173,29 @@ body {
     transition: color 300ms ease-in-out, background 300ms ease-in-out;
     outline: none;
     overflow: hidden;
-  }
-  
-  .picture:hover {
+}
+
+.picture:hover {
     color: #777;
     background: #ccc;
-  }
-  
-  .picture:active {
+}
+
+.picture:active {
     border-color: #0C8CE9;
     color: #0C8CE9;
     background: #eee;
-  }
-  
-  .picture:focus {
+}
+
+.picture:focus {
     color: #777;
     background: #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  }
-  
-  .picture__img {
+}
+
+.picture__img {
     max-width: 100%;
-  }
-  
+}
+
 /* header  */
 
 header {
@@ -227,7 +206,6 @@ header {
     z-index: 1000;
     top: 0;
 }
-
 
 header .interface {
     display: flex;
@@ -262,7 +240,7 @@ header nav ul li {
 }
 
 .btn-contato button {
-    padding: 10px 40px;
+    padding: 15px 40px;
     font-size: 18px;
     font-weight: 600;
     background-color: black;

@@ -1,4 +1,3 @@
-
 from flask import Flask, request, render_template, redirect, flash
 import requests
 import json
@@ -16,7 +15,7 @@ def retorno():
     try:
         return render_template('tela_login.html')
     except Exception as e:
-        # Trate ou registre o erro conforme necessário
+
         print(f"Erro na rota /: {e}")
         flash('Ocorreu um erro durante a exibição da página de login.')
         return render_template('tela_login.html')
@@ -34,7 +33,7 @@ def cadastrar():
             senha_confirmacao = request.form.get('senha1')
 
             if not nome or not email or not senha or not senha_confirmacao or not sobrenome or not celular:
-                flash('Preencha todos os campos.')
+                pass
             elif "@" not in email or email.split("@")[1].split(".")[0] not in lista_provedores:
                 flash('Formato de email inválido')
             elif senha != senha_confirmacao:

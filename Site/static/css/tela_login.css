@@ -126,10 +126,12 @@ body {
     width: 100%;
     margin-top: 2.5rem;
     border: none;
+    color: white;
     background-color: #0C8CE9;
     padding: 0.62rem;
     border-radius: 50px;
     cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
 }
 
 .continue-button{
@@ -137,7 +139,8 @@ body {
 }
 
 .continue-button button:hover {
-    background-color: #E8EAED;
+    transform: scale(1.05);
+    background-color: #0a73c2;
 }
 
 .continue-button button a {
