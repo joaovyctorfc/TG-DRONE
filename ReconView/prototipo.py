@@ -1,4 +1,3 @@
-# as 3 linhas capazes de salvar um tg
 
 from ultralytics import YOLO
 
