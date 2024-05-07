@@ -42,6 +42,7 @@ def login():
                         session['user_email'] = email
                         
 
+                        session['user_nome'] = usuario.get('nome')  
 
 
                         return render_template('tela_principal.html')
@@ -79,7 +80,6 @@ def video():
     try:
         if 'logged_in' in session and session['logged_in']:
             user_email = session['user_email']
-            user_nome = session['user_nome']
 
             # Criar um dicionário com os dados do vídeo
             video_data = {
@@ -91,7 +91,7 @@ def video():
             # Adicionar video_data ao Firebase Realtime Database ou Firestore
             # Certifique-se de usar o método apropriado aqui para adicionar dados ao Firebase.
 
-            return render_template('Video.html', user_email=user_email, user_nome=user_nome)
+            return render_template('Video.html', user_email=user_email)
         else:
             return redirect('/')
     except Exception as e:
@@ -108,7 +108,6 @@ def home():
         if 'logged_in' in session and session['logged_in']:
             user_email = session['user_email']  
             user_nome = session['user_nome']  
-
             return render_template('tela_principal.html', user_email=user_email, user_nome=user_nome)
         else:
             return redirect('/')
@@ -123,10 +122,9 @@ def home():
 def tempo():
     try:
         if 'logged_in' in session and session['logged_in']:
-            user_email = session['user_email']  
-            user_nome = session['user_nome']  
+      
 
-            return render_template('tempo.html', user_email=user_email, user_nome=user_nome)
+            return render_template('tempo.html')
         else:
             return redirect('/')
     except Exception as e:
@@ -156,9 +154,8 @@ def sobre():
     try:
         if 'logged_in' in session and session['logged_in']:
             user_email = session['user_email']  
-            user_nome = session['user_nome']  
 
-            return render_template('sobre.html', user_email=user_email, user_nome=user_nome)
+            return render_template('sobre.html', user_email=user_email)
         else:
             return redirect('/')
     except Exception as e:
