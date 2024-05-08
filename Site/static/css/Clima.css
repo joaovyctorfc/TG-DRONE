@@ -1,6 +1,6 @@
 /* Adicione o estilo das cores aqui */
 body {
-    background-color: #0e1525;
+    background-color: #FAFAFA;
 }
 
 #content {
@@ -9,11 +9,11 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 80vh;
-    background: linear-gradient(#0e1525, #0e1525);
+    background: linear-gradient(#FAFAFA, #FAFAFA);
 }
 
 #container {
-    background-color: #0e1525;
+    background-color: #FAFAFA;
     padding: 16px; /* Aumento do preenchimento */
     width: 95%; /* Aumento da largura */
     max-width: 450px; /* Ajuste da largura máxima */
@@ -32,10 +32,10 @@ body {
     display: flex;
     align-items: center;
     gap: 8px; /* Aumento do espaçamento entre os elementos */
-    border: 1px solid #bdbdbd;
+    border: 1px solid black;
     border-radius: 10px;
     padding: 10px 14px; /* Aumento do preenchimento */
-    color: #fff;
+    color: black;
     
 }
 
@@ -44,41 +44,37 @@ body {
     background-color: transparent;
     font-size: 18px; /* Aumento do tamanho da fonte */
     width: 100%;
-    color: #fff;
+    color: black;
 }
 
 #search input:focus-visible {
     outline: none;
-    color: #fff;
-
+    color: black;
 }
 
 #search button {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    color: #fff;
+    color: black;
 }
 
 #weather {
     display: none;
     margin-top: 20px; /* Aumento do espaçamento superior */
-    background-color: #0e1525;
-
-
+    background-color: #FAFAFA;
 }
 
 #weather.show {
     display: block;
-    background-color: #0e1525;
-
+    background-color: #FAFAFA;
 }
 
 #weather #title {
     text-align: center;
     margin-bottom: 12px; /* Aumento do espaçamento inferior */
     font-weight: 600;
-    color: #fff;
+    color: black;
     font-size: 20px; /* Aumento do tamanho da fonte */
     background-color: 0e1525;
 }
@@ -88,15 +84,15 @@ body {
     align-items: center;
     justify-content: space-around;
     gap: 12px; /* Aumento do espaçamento entre os elementos */
-    background: linear-gradient(90deg,#0e1525,#0e1525);
-    color: #fff;
+    background: linear-gradient(90deg,#FAFAFA,#FAFAFA);
+    color: black;
     padding: 25px; /* Aumento do preenchimento */
-    background-color: #0e1525;
+    background-color: #FAFAFA;
 }
 
 #temp_img {
     padding: 18px;
-    background-color: #0e1525;
+    background-color: #FAFAFA;
 }
 
 #temp_value {
@@ -116,7 +112,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px; /* Aumento do espaçamento entre os elementos */
-    background-color: #0e1525;
+    background-color: #FAFAFA;
 }
 
 #other_infos .info {
@@ -125,15 +121,15 @@ body {
     justify-content: start;
     padding: 12px; /* Aumento do preenchimento */
    
-    background-color: #0e1525;
-    color: #fff;
+    background-color: #FAFAFA;
+    color: black;
     gap: 10px; /* Aumento do espaçamento entre os elementos */
 }
 
 #other_infos .info h2 {
     font-size: 16px; /* Aumento do tamanho da fonte */
     font-weight: 600;
-    color: #fff;
+    color: black;
 }
 
 #other_infos .info i {
@@ -156,4 +152,79 @@ body {
 
 #wind_icon {
     color: #7c3aed;
+}
+
+/* Estilos do cabeçalho */
+header {
+    background-color: #FAFAFA;
+    padding: 20px 4%;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+}
+
+header .interface {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+header a {
+    color: #7d7d7d;
+    text-decoration: none;
+    display: inline-block;
+    transition: .2s;
+    font-size: 22px;
+}
+
+header a:hover {
+    color: black;
+    transform: scale(1.05);
+}
+
+header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline-block;
+    padding: 0 40px;
+}
+
+.btn-contato button {
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #2093FF;
+    color: white;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btn-contato button:hover {
+    box-shadow: 0px 0px 8px #d6dde2;
+    transform: scale(1.05);
+}
+
+.sair {
+    background-color: gray !important;
+    color: white;
+    border: none;
+    margin-left: 10px;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sair:hover {
+    background-color: red !important; /* Altera a cor para vermelho quando passa o mouse */
 }
