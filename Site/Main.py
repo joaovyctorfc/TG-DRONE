@@ -221,7 +221,7 @@ def upload():
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USERNAME'] = 'reconviewads@gmail.com'
-app.config['MAIL_PASSWORD'] = 'fdwr jxgw rvtx gsbr'
+app.config['MAIL_PASSWORD'] = 'kzwu ipld nqvo xxrk'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 
