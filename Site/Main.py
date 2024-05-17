@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, flash,session
+from flask import Flask, request, render_template, redirect, flash,session,url_for
 import requests
 import json,re
 from Perfil import perfil
@@ -45,7 +45,7 @@ def login():
                         session['user_nome'] = usuario.get('nome')  
 
 
-                        return render_template('tela_principal.html')
+                        return redirect(url_for('home')) 
                     else:
                         flash('Senha incorreta.')
                         return redirect('/')
@@ -216,7 +216,6 @@ def upload():
         flash('Ocorreu um erro na página de upload.')
         return redirect('/')
     
-
 # Configuração do Flask-Mail
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
@@ -237,7 +236,7 @@ def gerar_codigo():
 @app.route('/senha')
 def redefinicao_senha():
     try:
-                 return render_template('tela_esqueceu.html')
+                 return render_template('Email.html')
     
     except Exception as e:
         # Trate ou registre o erro conforme necessário
