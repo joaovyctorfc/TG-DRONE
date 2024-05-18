@@ -7,6 +7,8 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
+  
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
@@ -16,34 +18,9 @@
     <!-- boostrap -->
     <link rel="stylesheet" href="{{url_for('static',filename='css/tela_principal.css')}}" />
     <title>Home</title>
-    <script >
-        window.addEventListener('DOMContentLoaded', function() {
-    var footerTop = document.querySelector('footer').offsetTop;
-    var formTop = document.querySelector('.formulario').offsetTop;
-    var chatButton = document.querySelector('.chat-btn');
 
-    function adjustChatButtonPosition() {
-        var scrollPosition = window.scrollY;
-        if (window.innerWidth <= 1020) {
-            // Para telas de até 1020px, o botão de chat para antes do formulário "Fale Conosco"
-            if (scrollPosition >= formTop - window.innerHeight) {
-                chatButton.style.bottom = (scrollPosition - formTop + window.innerHeight + 20) + 'px';
-            } else {
-                chatButton.style.bottom = '20px';
-            }
-        } else {
-            // Para telas maiores que 1020px, o botão de chat para no rodapé
-            if (scrollPosition >= footerTop - window.innerHeight) {
-                chatButton.style.bottom = (scrollPosition - footerTop + window.innerHeight + 20) + 'px';
-            } else {
-                chatButton.style.bottom = '20px';
-            }
-        }
-    }
 
-    window.addEventListener('scroll', adjustChatButtonPosition);
-});
-    </script>
+
     <script >
         let btnMenu = document.getElementById('btn-menu')
         let menu = document.getElementById('menu-mobile')
@@ -59,13 +36,22 @@
         
         overlay.addEventListener('click',() => {
             menu.classList.remove('abrir-menu')
-        })</script>
+        })
+    
+    
+    </script>
 </head>
 
-<body>
+<body class="">
+    <button class="chatbot-toggler">
+        <span class="material-symbols-outlined">mode_comment</span>
+        <span class="material-symbols-outlined">close</span>
+    </button>
 
     <header>
+
         <div class="interface">
+ 
             <div class="logo">
                 <a href="#">
                     <img src="{{ url_for('static', filename='css/Imgs/logo.png') }}"  alt="Logo" width="150px">
@@ -120,8 +106,9 @@
 
         </div><!---Interface-->
     </header>
-
+   
     <main>
+        
         <section class="topo-do-site">
             <div class="interface">
                 <div class="flex">
@@ -176,52 +163,54 @@
                 </div><!--flex-->
             </div><!--interface-->
         </section><!--objetivos-->
-
-
+        <div class="chatbot">
+            <header>
+                <h2>Chatbot</h2>
+                <span class="material-symbols-outlined">close</span>
+            </header>
+            <ul class="chatbox">
+                <li class="chat incoming">
+                </li>
+            </ul>
+            <div class="chat-input">
+                <textarea placeholder="Digite a mensagem..." required></textarea>
+                <span id="send-btn" class="material-symbols-outlined">send</span>
+            </div>
+        </div>
         
-
-
         <section class="sobre">
             <div class="interface">
                 <h2 class="titulo">CONHEÇA NOSSA <span>EQUIPE.</span></h2>
                 <div class="flex">
-
                     <div class="container">
                         <div class="card-border">
-                          <div class="card">
-                            <div class="content">
-                              <h2 class="title">Vanderlei Henrique</h2>
-                              <a href="https://www.linkedin.com/in/vanderlei-henrique-0612b829a/" target="_blank"><button class="btn-sobre"><i class="bi bi-linkedin"></i></button></a>
+                            <div class="card">
+                                <div class="content">
+                                    <h2 class="title">Vanderlei Henrique</h2>
+                                    <a href="https://www.linkedin.com/in/vanderlei-henrique-0612b829a/" target="_blank"><button class="btn-sobre"><i class="bi bi-linkedin"></i></button></a>
+                                </div>
                             </div>
-                          </div>
                         </div>
-                      
                         <div class="card-border">
-                          <div class="card">
-                            <div class="content">
-                              <h2 class="title">João Vyctor</h2>
-                              <a href="https://www.linkedin.com/in/jo%C3%A3o-vyctor-ferreira/" target="_blank"><button class="btn-sobre"><i class="bi bi-linkedin"></i></button></a>
+                            <div class="card">
+                                <div class="content">
+                                    <h2 class="title">João Vyctor</h2>
+                                    <a href="https://www.linkedin.com/in/jo%C3%A3o-vyctor-ferreira/" target="_blank"><button class="btn-sobre"><i class="bi bi-linkedin"></i></button></a>
+                                </div>
                             </div>
-                          </div>
                         </div>
-                      
                         <div class="card-border">
-                          <div class="card">
-                            <div class="content">
-                              <h2 class="title">Breno</h2>
-                              <a href="https://www.linkedin.com/in/breno-bastos-62396a246/" target="_blank"><button class="btn-sobre"><i class="bi bi-linkedin"></i></button></a>
+                            <div class="card">
+                                <div class="content">
+                                    <h2 class="title">Breno</h2>
+                                    <a href="https://www.linkedin.com/in/breno-bastos-62396a246/" target="_blank"><button class="btn-sobre"><i class="bi bi-linkedin"></i></button></a>
+                                </div>
                             </div>
-                          </div>
                         </div>
-                      </div>
-                      
-
-                </div><!--flex-->
-            </div><!--interface-->
-        </section><!--sobre-->
-
-
-
+                    </div>
+                </div><!-- flex -->
+            </div><!-- interface -->
+        </section><!-- sobre -->
         <section class="formulario">
             <div class="interface">
                 <h2 class="titulo">FALE <span>CONOSCO.</span></h2>
@@ -238,22 +227,22 @@
                 
             </div><!--interface-->
         </section><!--Formulátiro-->
-    </main>
+     
+        <!-- Coloque o botão chatbot aqui dentro -->
 
+        <!-- Coloque o botão chatbot aqui dentro -->
+    
+    </main>
+   
     <footer>
         <div class="interface">
-    
+
             <div class="line-footer">
                 <div class="flex">
-                    <!-- Coloque o botão chat-btn aqui dentro -->
-                    <div class="chat-btn">
-                        <a href="#">
-                            <img src="{{ url_for('static', filename='css/Imgs/imagens/chat.svg') }}" alt="Chat">
-                        </a>
+                
                     </div>
                 </div>
             </div>
-    
             <div class="line-footer borda">
                 <div class="logo-footer">
                     <img src="{{ url_for('static', filename='css/Imgs/logo.png') }}" alt="logotipo" width="150">
@@ -268,7 +257,85 @@
         </div><!--interface-->
     </footer>
     
+  
+    <script >
+        const chatInput = document.querySelector(".chat-input textarea");
+        const sendChatBtn = document.querySelector(".chat-input span");
+        const chatbox = document.querySelector(".chatbox");
+        const chatbotToggler = document.querySelector(".chatbot-toggler");
+        
+        const createChatLi = (message, className) => {
+            const chatLi = document.createElement("li");
+            chatLi.classList.add("chat", className);
+            let chatContent = className === "outgoing" ? `<p></p>` : `<span class="material-symbols-outlined">smart_toy</span><p></p>`;
+            chatLi.innerHTML = chatContent;
+            chatLi.querySelector("p").textContent = message;
+            return chatLi;
+        }
+        
+        const generateQuestion = () => {
+            const question = 'Escolha uma opção:\n1. Esqueci a senha\n2. Opção 2\n3. Opção 3';
+            return question;
+        };
+        
+        const generateResponse = (userMessage) => {
+            let responseMessage = '';
+        
+            switch (userMessage) {
+                case '1':
+                    responseMessage = 'Va para a pagina esqueceu a senha \n';
+                    break;
+                case '2':
+                    responseMessage = 'Resposta à opção 2 \,';
+                    break;
+                case '3':
+                    responseMessage = 'Resposta à opção 3 \n';
+                    break;
+                default:
+                    responseMessage = 'Não entendi. Por favor, escolha uma das opções disponíveis. \n';
+                    break;
+            }
+        
+            return responseMessage;
+        };
+        
+        const handleChat = () => {
+            const userMessage = chatInput.value.trim();
+            if (!userMessage) return;
+        
+            if (!userMessage.startsWith('1') && !userMessage.startsWith('2') && !userMessage.startsWith('3')) {
+                chatbox.appendChild(createChatLi(userMessage, "outgoing"));
+                chatbox.scrollTo(0, chatbox.scrollHeight);
+                setTimeout(() => {
+                    chatbox.appendChild(createChatLi('Por favor, escolha uma opção válida. \n', "incoming"));
+                    chatbox.scrollTo(0, chatbox.scrollHeight);
+                    chatbox.appendChild(createChatLi(generateQuestion(), "incoming"));
+                    chatbox.scrollTo(0, chatbox.scrollHeight);
+                }, 600);
+            } else {
+                const responseMessage = generateResponse(userMessage);
+                chatbox.appendChild(createChatLi(userMessage, "outgoing"));
+                chatbox.scrollTo(0, chatbox.scrollHeight);
+                setTimeout(() => {
+                    chatbox.appendChild(createChatLi(responseMessage, "incoming"));
+                    chatbox.scrollTo(0, chatbox.scrollHeight);
+                    chatbox.appendChild(createChatLi(generateQuestion(), "incoming")); // Adiciona a nova pergunta
+                    chatbox.scrollTo(0, chatbox.scrollHeight);
+                    chatInput.value = ''; // Limpa o campo de entrada de texto
+                }, 600);
+            }
+            chatInput.value = ''; // Limpa o campo de entrada de texto após enviar a mensagem
+        };
+        
+        chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
+        sendChatBtn.addEventListener("click", handleChat);
+        
+        // Gerar a primeira pergunta
+        chatbox.appendChild(createChatLi(generateQuestion(), "incoming"));
+        chatbox.scrollTo(0, chatbox.scrollHeight);
+        
 
+</script>
 
 
 
