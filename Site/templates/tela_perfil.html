@@ -24,12 +24,7 @@
                 <li><a href="/perfil">Perfil</a></li>
             </ul>
          </nav>
- 
-         <div class="btn-contato">
-             <a href="#">
-                 <button>Contato</button>
-             </a>
-         </div>
+         
     </div>
  </header>
 <body>
@@ -65,7 +60,7 @@
                     </div>
                     <div class="input-box">
                         <label for="number">Celular</label>
-                        <input id= "number" type="tel" name="number" placeholder="(xx) xxxx-xxxx" required>
+                        <input id= "number" type="tel" name="number" placeholder="(xx) xxxx-xxxx" pattern="\(\d{2}\) \d{4,5}-\d{4}" required>
                     </div>
                     <div class="input-box">
                         <label for="password">Senha</label>
@@ -82,6 +77,34 @@
             </form>
         </div>
     </div>
+
+    <script>
+        // Função para aplicar a máscara de telefone
+        function applyPhoneMask(input) {
+            // Remove todos os caracteres que não são dígitos
+            var phone = input.value.replace(/\D/g, '');
+
+            // Verifica o tamanho do número e aplica a máscara adequada
+            if (phone.length <= 2) {
+                input.value = '(' + phone;
+            } else if (phone.length <= 6) {
+                input.value = '(' + phone.substring(0, 2) + ') ' + phone.substring(2);
+            } else if (phone.length <= 10) {
+                input.value = '(' + phone.substring(0, 2) + ') ' + phone.substring(2, 6) + '-' + phone.substring(6);
+            } else {
+                input.value = '(' + phone.substring(0, 2) + ') ' + phone.substring(2, 7) + '-' + phone.substring(7, 11);
+            }
+        }
+
+        // Obtém o elemento de entrada de telefone
+        var phoneInput = document.getElementById('number');
+
+        // Aplica a máscara de telefone quando o usuário digita
+        phoneInput.addEventListener('input', function() {
+            applyPhoneMask(this);
+        });
+    </script>
+
 
     <script >
         const inputFile = document.querySelector("#picture__input");

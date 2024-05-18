@@ -8,6 +8,7 @@ from flask_mail import Mail, Message
 from flask import jsonify
 from flask_bcrypt import Bcrypt
 import random
+from ultralytics import YOLO
 
 app = Flask(__name__)
 app.secret_key = 'sua_chave_secreta_aqui'
@@ -284,6 +285,23 @@ def perfil_rota():
         print(f"Erro na rota /perfil: {e}")
         flash('Ocorreu um erro na página de perfil.')
         return redirect('/home')
+    
+    
+
+ #Caminho do vídeo
+video_path = r"C:\Users\Cliente\Music\GitHub\TG-DRONE\cars.mp4"
+
+# Função para realizar a detecção de objetos
+def detect_objects(video_path):
+    modelo = YOLO('yolov8n.pt')  
+    resultado = modelo.predict(source=video_path, conf=0.5, iou=0.5, show=False)  # Não exibimos o vídeo, apenas realizamos a detecção
+    return resultado
+
+# Rota principal da aplicação
+@app.route('/IA')
+def index():
+    resultado = detect_objects(video_path)
+    return render_template('analiseVideo.html', video_path=video_path)
 
 ##ser = serial.Serial('/dev/ttyACM0', 9600)
 
