@@ -64,6 +64,7 @@
                     <li><a href="/tempo">Clima</a></li>
                     <li><a href="#">Análise de Video</a></li>
                     <li><a href="/perfil">Perfil</a></li>
+                    <li><a href="#" id="scrollObjetivo">Objetivo</a></li>
                 </ul>
             </nav>
 
@@ -111,7 +112,7 @@
                             Nele, os vídeos são cuidadosamente arquivados, Prontos para serem explorados e analisados.</p>
 
                         <div class="btn-contato">
-                            <a href="#">
+                            <a href="#" id="scrollContato">
                                 <button>Entre em contato</button>
                             </a>
 
@@ -155,6 +156,15 @@
                 </div><!--flex-->
             </div><!--interface-->
         </section><!--objetivos-->
+
+        <script>
+            document.getElementById('scrollObjetivo').addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector('.objetivo').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        </script>
         <!-- chatbot-->
         <div class="chatbot">
             <header>
@@ -221,7 +231,14 @@
                 
             </div><!--interface-->
         </section><!--Formulátiro-->
-     
+        <script>
+            document.getElementById('scrollContato').addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector('.formulario').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        </script>
         <!-- Coloque o botão chatbot aqui dentro -->
 
         <!-- Coloque o botão chatbot aqui dentro -->
