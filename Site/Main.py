@@ -133,69 +133,6 @@ def tempo():
         flash('Ocorreu um erro na página de Tempo.')
         return redirect('/')
     
-@app.route('/chatbot', methods=['POST', 'GET'])
-def chat():
-    try:
-        if 'logged_in' in session and session['logged_in']:
-            user_email = session['user_email']  
-            user_nome = session['user_nome']  
-
-            return render_template('chatbot.html', user_email=user_email, user_nome=user_nome)
-        else:
-            return redirect('/')
-    except Exception as e:
-        # Trate ou registre o erro conforme necessário
-        print(f"Erro na rota /chatbot: {e}")
-        flash('Ocorreu um erro na página de ChatBot.')
-        return redirect('/')
-
-@app.route('/sobre', methods=['POST', 'GET'])
-def sobre():
-    try:
-        if 'logged_in' in session and session['logged_in']:
-            user_email = session['user_email']  
-
-            return render_template('sobre.html', user_email=user_email)
-        else:
-            return redirect('/')
-    except Exception as e:
-        # Trate ou registre o erro conforme necessário
-        print(f"Erro na rota /sobre: {e}")
-        flash('Ocorreu um erro na página de Sobre nós.')
-        return redirect('/')
-
-@app.route('/contato', methods=['POST', 'GET'])
-def contato():
-    try:
-        if 'logged_in' in session and session['logged_in']:
-            user_email = session['user_email']  
-            user_nome = session['user_nome']  
-
-            return render_template('contato.html', user_email=user_email, user_nome=user_nome)
-        else:
-            return redirect('/')
-    except Exception as e:
-        # Trate ou registre o erro conforme necessário
-        print(f"Erro na rota /contato: {e}")
-        flash('Ocorreu um erro na página de Contato.')
-        return redirect('/')
-
-@app.route('/objetivo', methods=['POST', 'GET'])
-def objetivo():
-    try:
-        if 'logged_in' in session and session['logged_in']:
-            user_email = session['user_email']  
-            user_nome = session['user_nome']  
-
-            return render_template('objetivo.html', user_email=user_email, user_nome=user_nome)
-        else:
-            return redirect('/')
-    except Exception as e:
-        # Trate ou registre o erro conforme necessário
-        print(f"Erro na rota /objetivo: {e}")
-        flash('Ocorreu um erro na página de Objetivo.')
-        return redirect('/')
-
 
 
 
