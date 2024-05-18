@@ -16,8 +16,11 @@
 
 </head>
 
-<body>
- 
+<body >
+  
+
+
+
     <header>
         <div class="interface">
           <div class="logo">
@@ -29,24 +32,28 @@
             <nav class="menu-desktop">
                 <ul>
                     <li><a href="/home">Início</a></li>
-                    <li><a href="/Video">video</a></li>
-                    <li><a href="/Upload">upload</a></li>
+                    <li><a href="/tempo">Clima</a></li>
+                    <li><a href="/Video">Biblioteca</a></li>
+                    <li><a href="/perfil">Perfil</a></li>
                 </ul>
             </nav>
 
-            <div class="btn-contato">
-                <a href="#">
-                    <button>Contato</button>
-                </a>
+              
                 <a href="/">
-                    <button class="sair" ><i class="bi bi-door-closed"></i></button>
+                    <button class="sair" >Sair</button>
                 </a>
-            </div>
         </div>
      </header>
     
- 
+     <button class="upload-toggler">
+        <span class="material-symbols-outlined">upload</span>
+    </button>
 
+    <script>
+        document.querySelector('.upload-toggler').addEventListener('click', function() {
+            window.location.href = '/Upload';
+        });
+    </script>
 <div class="c-loader"></div>
 
 
@@ -111,7 +118,6 @@ function loadVideosByDateTime() {
             var childData = childSnapshot.val();
             var videoUri = childData.imageurl;
             var videoUserEmail = childData.email;
-
             if (videoUserEmail === userEmail) {
                 var colDiv = document.createElement("div");
                 colDiv.classList.add("col-6");
@@ -130,11 +136,20 @@ function loadVideosByDateTime() {
                 downloadButton.classList.add("btn", "btn-primary");
                 downloadButton.marginLeft="-150px";
 
+                var IAButton1 = document.createElement("button");
+                IAButton1.textContent = "Analisar";
+                IAButton1.classList.add("btn", "btn-primary");
+                IAButton1.marginRight="-150px";
+
+
                 var downloadButton1 = document.createElement("button");
                 downloadButton1.textContent = "Deletar";
                 downloadButton1.classList.add("btn", "btn-secondary");
                 downloadButton1.marginRight="-150px";
 
+                IAButton1.addEventListener('click', function () {
+                   IASingleVideo(videoUri);
+                });
                 downloadButton.addEventListener('click', function () {
                     downloadSingleVideo(videoUri);
                 });
@@ -147,6 +162,7 @@ function loadVideosByDateTime() {
 
                 colDiv.appendChild(videoElement);
                 colDiv.appendChild(downloadButton);
+                colDiv.appendChild(IAButton1);
 
                 colDiv.appendChild(dateText);
                 colDiv.appendChild(downloadButton1);
@@ -198,13 +214,9 @@ function downloadSingleVideo(videoUri) {
     console.log(videoUri);
 }
 
-function deletedSingleVideo(videoUri) {
-    var videoElements = document.querySelectorAll('video[data-video-url="' + videoUri + '"]');
-    videoElements.forEach(function(videoElement) {
-        var videoDiv = videoElement.parentNode;
-        videoDiv.parentNode.removeChild(videoDiv);
-    });}
-
+function IASingleVideo(videoUri) {
+    console.log(videoUri);
+}
 
 
 

@@ -12,6 +12,25 @@
     bottom: 0;
 }
             
+.upload-toggler{
+    position: fixed;
+    right: 40px;
+    bottom: 35px;
+    height: 70px;
+    width: 70px;
+    color: #fff;
+    background: #2093FF;
+    border-radius: 50%;
+    border:none;
+    outline:none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.1s ease;
+    z-index: 999;
+
+}
   .nav-link.active1 {
     color: red;
 }
