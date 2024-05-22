@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, flash,session,url_for
+from flask import Flask, request, render_template, redirect, flash,session,url_for,send_file
 import requests
 import json,re
 from Perfil import perfil
@@ -8,7 +8,9 @@ from flask_mail import Mail, Message
 from flask import jsonify
 from flask_bcrypt import Bcrypt
 import random
-from ultralytics import YOLO
+import cv2
+import os
+#from ultralytics import YOLO
 
 app = Flask(__name__)
 app.secret_key = 'sua_chave_secreta_aqui'
@@ -287,32 +289,61 @@ def perfil_rota():
         return redirect('/home')
     
     
+UPLOAD_FOLDER = 'uploads'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
- #Caminho do vídeo
-video_path = r"C:\Users\Cliente\Music\GitHub\TG-DRONE\cars.mp4"
 
-# Função para realizar a detecção de objetos
-def detect_objects(video_path):
-    modelo = YOLO('yolov8n.pt')  
-    resultado = modelo.predict(source=video_path, conf=0.5, iou=0.5, show=False)  # Não exibimos o vídeo, apenas realizamos a detecção
-    return resultado
+model = YOLO("yolov8n.pt")
 
-# Rota principal da aplicação
+def analise_video(video_path):
+    cap = cv2.VideoCapture(video_path)
+    output_path = os.path.join(UPLOAD_FOLDER, 'result.mp4')
+    fps = cap.get(cv2.CAP_PROP_FPS)
+    width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+    out = cv2.VideoWriter(output_path, fourcc, fps, (width, height))
+    while cap.isOpened():
+        success, frame = cap.read()
+        if success:
+            results = model(frame)
+            annotated_frame = results[0].plot()
+            out.write(annotated_frame)
+        else:
+            break
+    cap.release()
+    out.release()
+    return output_path
+
 @app.route('/IA')
 def index():
-    resultado = detect_objects(video_path)
-    return render_template('analiseVideo.html', video_path=video_path)
+    return render_template('upload_video_ia.html')
 
-##ser = serial.Serial('/dev/ttyACM0', 9600)
+@app.route('/UploadIA', methods=['POST'])
+def upload():
+    
+    if 'video' not in request.files:
+        return redirect(request.url)
+    file = request.files['video']
+ 
+    if file.filename == '':
+        return redirect(request.url)
+    if file:
+       
+        filename = file.filename
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(file_path)
+        
+        result_video_path = analise_video(file_path)
+        
+        return render_template('analiseVideo.html', result_video_path=result_video_path)
+    
+    
 
-##@app.route('/api', methods=['GET'])
-##def obter_dados():
-    # Lê uma linha da porta serial
-   ## linha = ser.readline()
-    
-    ##linha_decodificada = linha.decode('utf-8').strip()
-    
-    # Retorna os dados como JSON
-  ##  return jsonify({'dados': linha_decodificada})
+@app.route('/downloadIA', methods=['POST'])
+def download():
+    result_video_path = request.form['result_video_path']
+    return send_file(result_video_path, as_attachment=True)
+
 if __name__ == "__main__":
     app.run(debug=True)

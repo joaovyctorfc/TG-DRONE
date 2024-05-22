@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detecção de Objetos</title>
+    <title>Resultado da Análise</title>
 </head>
 <body>
-    <h1>Detecção de Objetos</h1>
-    <video controls width="640" height="480">
-        <source src="{{ video_path }}" type="video/mp4">
-    </video>
+    <h1>Resultado da Análise do Vídeo</h1>
+    <p>O vídeo foi analisado com sucesso!</p>
+    <p>Clique no Botão para Baixar</a></p>
+    <form action="{{ url_for('download') }}" method="post">
+        <input type="hidden" name="result_video_path" value="{{ result_video_path }}">
+        <button type="submit">Baixar Vídeo Analisado</button>
+    </form>
 </body>
 </html>
