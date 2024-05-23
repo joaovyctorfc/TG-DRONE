@@ -1,12 +1,16 @@
 /* Adicione o estilo das cores aqui */
 body {
-    background-color: #0e1525;
+    background-color: #E8EAED;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Garante que a altura do body ocupe toda a viewport */
+    margin: 0; /* Remove as margens padrão */
 }
 
 /* Centralizar o texto "Login" e abaixar */
 h1 {
- 
-    
+    color: black;
 }
 
 /* Alterar a cor do link para uma tonalidade mais clara */
@@ -30,7 +34,6 @@ a {
     margin: 0 auto;
     margin-top: 20px;
     height: 50%;
-    
 }
 
 .center-input {
@@ -40,26 +43,23 @@ a {
 
 .form_frente {
     text-align: center;
-    padding: 200px -200px; /* Reduzir o preenchimento */
+    padding: 20px; /* Ajuste o preenchimento conforme necessário */
     box-shadow: 0 0 10px rgba(2, 0, 0, 0.2);
-    color: #ffffff;
-    background-color: #161D2D; /* Fundo transparente */
-    border: none; /* Remove a borda */
-    padding: 0; /* Sem preenchimento */
+    color: black;
+    background-color: #FAFAFA;
+    border: none;
     height: 400px;
     width: 30%; /* Ajuste a largura desejada */
-  
     border-radius: 18px;
-
-    margin-left: 500px;
 }
- 
+
+/* Centralizar o cabeçalho de login */
 .login-header {
     text-align: center;
-    color: #fff;
-    text-align: center;
-    margin-top: 100px;
+    color: black;
+    margin-top: 20px; /* Ajuste conforme necessário */
 }
+
 .custom-width {
     width: 50vw; /* Ajuste a largura conforme necessário com unidade vw (viewport width) */
     margin-left: 50%; /* Move metade para a esquerda para centralizar */
@@ -67,7 +67,7 @@ a {
 }
 
 .btn-primary {
-    background-color: #004182;
+    background-color: #0A73C2;
     color: #fff;
     border: 2px solid #6289b4;
 }
