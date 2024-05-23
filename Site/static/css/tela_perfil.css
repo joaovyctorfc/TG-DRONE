@@ -270,3 +270,11 @@ header nav ul li {
 .sair:hover {
     background-color: red !important; /* Altera a cor para vermelho quando passa o mouse */
 }
+
+.site-header {
+    height: 80px; /* Altura do cabeçalho */
+}
+
+body {
+    padding-top: 80px; /* Igual à altura do cabeçalho */
+}

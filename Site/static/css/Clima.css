@@ -1,15 +1,67 @@
 /* Adicione o estilo das cores aqui */
 body {
     background-color: #FAFAFA;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+}
+
+header {
+    background-color: #FAFAFA;
+    padding: 10px 4%;
+    position: sticky;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .interface {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1250px;
+    margin: 0 auto;
+    width: 100%; /* Certifica que a largura seja 100% do contêiner pai */
+}
+
+header a {
+    color: #7d7d7d;
+    text-decoration: none;
+    display: inline-block;
+    transition: .2s;
+    font-size: 22px;
+}
+
+header a:hover {
+    color: black;
+    transform: scale(1.05);
+}
+
+header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline-block;
+    padding: 0 40px;
 }
 
 #content {
+    width: 100%; /* Certifica-se de que o conteúdo ocupa toda a largura disponível */
+    max-width: 1200px; /* Define um limite máximo para a largura do conteúdo */
     margin-top: 20px; /* Aumento do espaçamento superior */
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* Centraliza os itens verticalmente */
+    justify-content: space-between; /* Distribui os itens com espaço igual entre eles */
     min-height: 80vh;
     background: linear-gradient(#FAFAFA, #FAFAFA);
+    padding: 0 20px; /* Adiciona um padding para garantir que o conteúdo não fique colado nas bordas */
+    box-sizing: border-box; /* Inclui padding e border no tamanho total do elemento */
 }
 
 #container {
@@ -36,7 +88,6 @@ body {
     border-radius: 10px;
     padding: 10px 14px; /* Aumento do preenchimento */
     color: black;
-    
 }
 
 #search input {
@@ -76,7 +127,6 @@ body {
     font-weight: 600;
     color: black;
     font-size: 20px; /* Aumento do tamanho da fonte */
-    background-color: 0e1525;
 }
 
 #temp {
@@ -84,7 +134,7 @@ body {
     align-items: center;
     justify-content: space-around;
     gap: 12px; /* Aumento do espaçamento entre os elementos */
-    background: linear-gradient(90deg,#FAFAFA,#FAFAFA);
+    background: linear-gradient(90deg, #FAFAFA, #FAFAFA);
     color: black;
     padding: 25px; /* Aumento do preenchimento */
     background-color: #FAFAFA;
@@ -120,7 +170,6 @@ body {
     align-items: center;
     justify-content: start;
     padding: 12px; /* Aumento do preenchimento */
-   
     background-color: #FAFAFA;
     color: black;
     gap: 10px; /* Aumento do espaçamento entre os elementos */
@@ -152,48 +201,6 @@ body {
 
 #wind_icon {
     color: #7c3aed;
-}
-
-/* Estilos do cabeçalho */
-header {
-    background-color: #FAFAFA;
-    padding: 20px 4%;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    top: 0;
-}
-
-header .interface {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1250px;
-    margin: 0 auto;
-}
-
-header a {
-    color: #7d7d7d;
-    text-decoration: none;
-    display: inline-block;
-    transition: .2s;
-    font-size: 22px;
-}
-
-header a:hover {
-    color: black;
-    transform: scale(1.05);
-}
-
-header nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-header nav ul li {
-    display: inline-block;
-    padding: 0 40px;
 }
 
 .btn-contato button {

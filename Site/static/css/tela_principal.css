@@ -237,7 +237,8 @@ form .btn-enviar input:hover {
 
 
 header {
-    padding: 20px 4%;
+    padding: 10px 4%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 header > .interface {
