@@ -10,7 +10,7 @@ from flask_bcrypt import Bcrypt
 import random
 import cv2
 import os
-#from ultralytics import YOLO
+from ultralytics import YOLO
 
 app = Flask(__name__)
 app.secret_key = 'sua_chave_secreta_aqui'
@@ -320,7 +320,7 @@ def index():
     return render_template('upload_video_ia.html')
 
 @app.route('/UploadIA', methods=['POST'])
-def upload():
+def upload_IA():
     
     if 'video' not in request.files:
         return redirect(request.url)
@@ -337,7 +337,7 @@ def upload():
         result_video_path = analise_video(file_path)
         
         return render_template('analiseVideo.html', result_video_path=result_video_path)
-    
+
     
 
 @app.route('/downloadIA', methods=['POST'])
