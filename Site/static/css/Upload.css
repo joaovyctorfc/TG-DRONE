@@ -99,9 +99,15 @@ a {
         justify-content: space-between;
     }
     .btn-primary {
+        color: white;
+        width: 20%;
+        border: 2px solid #6289b4; 
         background-color: #004182;
-    color: #fff;
-    border: 2px solid #6289b4; 
+        padding: 0.62rem;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out, transform 0.2s;
+        margin-bottom: 0.2rem;
     }
     .btn-primary:hover {
         background-color: #007bff; }

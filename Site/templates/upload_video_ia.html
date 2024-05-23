@@ -1,49 +1,62 @@
+</html>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('static',filename='css/upload_ia.css')}}" />
-    <title>Upload de Vídeo</title>
-</head>
-<body>
-    <header>
-        <div class="interface">
-            <div class="logo">
-                <a href="#">
-                    <img src="{{ url_for('static', filename='css/Imgs/logo.png') }}"  alt="Logo" width="75px">
-                </a>
-            </div>
-    
-            <nav class="menu-desktop">
-                <ul>
-                    <li><a href="/home">Início</a></li>
-                    <li><a href="/tempo">Clima</a></li>
-                    <li><a href="/IA">Análise de Vídeo</a></li>
-                    <li><a href="/Video">Biblioteca</a></li>
-                    <li><a href="/perfil">Perfil</a></li>
-                </ul>
-            </nav>
-            <a href="/">
-                <button class="sair" >Sair</button>
-            </a>
-        </div>
-    </header>
+    <title>Upload</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/upload_ia.css')}}"  />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <div id="upload">
-        <h1>Upload de Vídeo</h1>
-        <form id="uploadForm" action="/UploadIA" method="post" enctype="multipart/form-data" onsubmit="showLoader()">
-            <input type="file" name="video" accept="video/*">
-            <button type="submit">Enviar</button>
-        </form>
-        <div id="loader" style="display: none;" class="loader"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+</head>
+
+<header>
+    <div class="interface">
+      <div class="logo">
+         <a href="#">
+            <img src="{{ url_for('static', filename='css/Imgs/logo.png') }}"  alt="Logo" width="100px">
+         </a>
     </div>
+ 
+        <nav class="menu-desktop">
+            <ul>
+                <li><a href="/home">Início</a></li>
+                <li><a href="/tempo">Clima</a></li>
+                <li><a href="/IA">Análise de Vídeo</a></li>
+                <li><a href="/Video">Biblioteca</a></li>
+                <li><a href="/perfil">Perfil</a></li>
+            </ul>
+        </nav>
+        <a href="/">
+            <button class="sair" >Sair</button>
+        </a>
+       
+ </header>
+
+<body >
+
+    <form class="container" id="contactForm" enctype="multipart/form-data">
+        <div class="card">
+            <div class="card-body">
+                Vídeo Upload:
+                <br>
+                <form id="uploadForm" action="/UploadIA" method="post" enctype="multipart/form-data" onsubmit="showLoader()">
+                    <input type="file" name="video" accept="video/*" class="custom-file-input">
+                    <button type="submit">Enviar</button>
+                <br>
+                </form>
+                <div id="loader" style="display: none;" class="loader"></div>
+            </div>
+        
 
     <script>
         function showLoader() {
             document.getElementById("uploadForm").style.display = "none";
-            document.getElementById("loader").style.display = "block";
-        }
+            document.getElementById("loader").style.display = "block";}
     </script>
 </body>
+
 </html>
