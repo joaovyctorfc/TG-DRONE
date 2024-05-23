@@ -51,7 +51,6 @@
     </script>
 <div class="c-loader"></div>
 
-<h1 style="margin-top: 60px;  color: #fff;">Meus Vídeos</h1>
     
 
     <div id="videos-container" style="margin-left: 20px;"></div>
@@ -149,15 +148,12 @@ function loadVideosByDateTime() {
                 downloadButton1.addEventListener('click', function () {
                     deletedSingleVideo(videoUri);
                 });
-                var dateText = document.createElement("span");
-                dateText.textContent = "Data e Hora: " + childData.date;
-                    dateText.style.color = "white";
+          
 
                 colDiv.appendChild(videoElement);
                 colDiv.appendChild(downloadButton);
                 colDiv.appendChild(IAButton1);
 
-                colDiv.appendChild(dateText);
                 colDiv.appendChild(downloadButton1);
 
                 rowDiv.appendChild(colDiv);
