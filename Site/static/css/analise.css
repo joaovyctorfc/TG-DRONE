@@ -34,6 +34,11 @@ body {
     100% { transform: rotate(360deg); }
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 header {
     background-color: #E8EAED;
     padding: 20px 4%;
@@ -95,12 +100,13 @@ header nav ul li {
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    margin-top: 100px; /* Adiciona espaço para o header */
+    margin-top: 100px;
 }
 
 .container {
-    max-width: 800px; /* Define a largura máxima do conteúdo */
-    margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 250px;
 }
 
 button[type="submit"] {
