@@ -65,7 +65,15 @@ header nav ul li {
 }
 
 /* Estilo personalizado para o botão "Procurar" */
-
+.custom-file-input::file-selector-button {
+    background-color: #6c757d;
+        color: #fff;
+    border-radius: 10px; /* Borda arredondada para o botão */
+    padding: 5px 10px; /* Espaçamento interno para o botão */
+    margin-top: 10px; /* Espaçamento superior do botão */
+    border: none; /* Remove a borda do botão */
+    cursor: pointer; /* Mostrar o cursor de mão ao passar o mouse sobre o botão */
+    }
     a {
     color: #4d7dab; /* Cor mais clara do que o azul padrão */
     }
@@ -142,5 +150,5 @@ button[type="submit"] {
     }
 
 button[type="submit"]:hover {
-    background-color: #007bff;
+    background-color: #0a73c2;
     transform: scale(1.05);}
