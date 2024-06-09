@@ -160,7 +160,6 @@ header nav ul li {
     background-color: gray !important;
     color: white;
     border: none;
-    margin-left: 10px;
     border-radius: 30px;
     padding: 10px 20px;
     font-size: 18px;
@@ -171,7 +170,6 @@ header nav ul li {
 .sair:hover {
     background-color: red !important; /* Altera a cor para vermelho quando passa o mouse */
 }
-
 /* Aplica a fonte 'Roboto' para todo o corpo da página */
 body {
     font-family: 'Poppins', sans-serif;
