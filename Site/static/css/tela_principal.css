@@ -723,6 +723,10 @@ form .btn-enviar input {
 
 /* estilo do rodapé */
 
+footer .flex {
+    justify-content: space-between;
+}
+
 footer .line-footer {
     padding: 20px 0;
     border-bottom: 2px solid black;
@@ -746,7 +750,6 @@ footer .line-footer p a {
 .logo-footer img {
     margin-right: 20px;
 }
-
 
 /*  responsivo  */
 
