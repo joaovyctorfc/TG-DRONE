@@ -8,9 +8,9 @@ from flask_mail import Mail, Message
 from flask import jsonify
 from flask_bcrypt import Bcrypt
 import random
-import cv2
-import os
-from ultralytics import YOLO
+# import cv2
+# import os
+# from ultralytics import YOLO
 
 app = Flask(__name__)
 app.secret_key = 'sua_chave_secreta_aqui'
@@ -289,61 +289,61 @@ def perfil_rota():
         return redirect('/home')
     
     
-UPLOAD_FOLDER = 'uploads'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+# UPLOAD_FOLDER = 'uploads'
+# app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
-model = YOLO("yolov8n.pt")
+# model = YOLO("yolov8n.pt")
 
-def analise_video(video_path):
-    cap = cv2.VideoCapture(video_path)
-    output_path = os.path.join(UPLOAD_FOLDER, 'result.mp4')
-    fps = cap.get(cv2.CAP_PROP_FPS)
-    width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-    fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-    out = cv2.VideoWriter(output_path, fourcc, fps, (width, height))
-    while cap.isOpened():
-        success, frame = cap.read()
-        if success:
-            results = model(frame)
-            annotated_frame = results[0].plot()
-            out.write(annotated_frame)
-        else:
-            break
-    cap.release()
-    out.release()
-    return output_path
+# def analise_video(video_path):
+#     cap = cv2.VideoCapture(video_path)
+#     output_path = os.path.join(UPLOAD_FOLDER, 'result.mp4')
+#     fps = cap.get(cv2.CAP_PROP_FPS)
+#     width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+#     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+#     fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+#     out = cv2.VideoWriter(output_path, fourcc, fps, (width, height))
+#     while cap.isOpened():
+#         success, frame = cap.read()
+#         if success:
+#             results = model(frame)
+#             annotated_frame = results[0].plot()
+#             out.write(annotated_frame)
+#         else:
+#             break
+#     cap.release()
+#     out.release()
+#     return output_path
 
-@app.route('/IA')
-def index():
-    return render_template('upload_video_ia.html')
+# @app.route('/IA')
+# def index():
+#     return render_template('upload_video_ia.html')
 
-@app.route('/UploadIA', methods=['POST'])
-def upload_IA():
+# @app.route('/UploadIA', methods=['POST'])
+# def upload_IA():
     
-    if 'video' not in request.files:
-        return redirect(request.url)
-    file = request.files['video']
+#     if 'video' not in request.files:
+#         return redirect(request.url)
+#     file = request.files['video']
  
-    if file.filename == '':
-        return redirect(request.url)
-    if file:
+#     if file.filename == '':
+#         return redirect(request.url)
+#     if file:
        
-        filename = file.filename
-        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        file.save(file_path)
+#         filename = file.filename
+#         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+#         file.save(file_path)
         
-        result_video_path = analise_video(file_path)
+#         result_video_path = analise_video(file_path)
         
-        return render_template('analiseVideo.html', result_video_path=result_video_path)
+#         return render_template('analiseVideo.html', result_video_path=result_video_path)
 
     
 
-@app.route('/downloadIA', methods=['POST'])
-def download():
-    result_video_path = request.form['result_video_path']
-    return send_file(result_video_path, as_attachment=True)
+# @app.route('/downloadIA', methods=['POST'])
+# def download():
+#     result_video_path = request.form['result_video_path']
+#     return send_file(result_video_path, as_attachment=True)
 
 if __name__ == "__main__":
     app.run(debug=True)
