@@ -171,3 +171,17 @@ header nav ul li {
 .sair:hover {
     background-color: red !important; /* Altera a cor para vermelho quando passa o mouse */
 }
+
+/* Aplica a fonte 'Roboto' para todo o corpo da página */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Adiciona estilos específicos para outros elementos, se necessário */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+}
+
+p, a, li, button {
+    font-family: 'Poppins', sans-serif;
+}
