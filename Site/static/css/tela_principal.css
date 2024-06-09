@@ -235,23 +235,16 @@ form .btn-enviar input:hover {
 }
 
 
+
 header {
-    background-color: #FAFAFA;
     padding: 10px 4%;
-    position: sticky;
-    width: 100%;
-    z-index: 1000;
-    top: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-header .interface {
+header > .interface {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1250px;
-    margin: 0 auto;
-    width: 100%; /* Certifica que a largura seja 100% do contêiner pai */
 }
 
 header a {
@@ -262,23 +255,19 @@ header a {
     font-size: 22px;
 }
 
-header a:hover {
+header nav.menu-desktop a:hover{
     color: black;
     transform: scale(1.05);
 }
 
 header nav ul {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
 }
 
-header nav ul li {
+header nav.menu-desktop ul li{
     display: inline-block;
-    padding: 0 40px;
+    padding: 0 20px;
 }
-
-
 
 .sair {
     background-color: gray !important;
@@ -734,6 +723,10 @@ form .btn-enviar input {
 
 /* estilo do rodapé */
 
+footer .flex {
+    justify-content: space-between;
+}
+
 footer .line-footer {
     padding: 20px 0;
     border-bottom: 2px solid black;
@@ -757,7 +750,6 @@ footer .line-footer p a {
 .logo-footer img {
     margin-right: 20px;
 }
-
 
 /*  responsivo  */
 
