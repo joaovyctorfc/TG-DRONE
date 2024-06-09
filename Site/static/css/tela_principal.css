@@ -235,16 +235,23 @@ form .btn-enviar input:hover {
 }
 
 
-
 header {
+    background-color: #FAFAFA;
     padding: 10px 4%;
+    position: sticky;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-header > .interface {
+header .interface {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-width: 1250px;
+    margin: 0 auto;
+    width: 100%; /* Certifica que a largura seja 100% do contêiner pai */
 }
 
 header a {
@@ -255,19 +262,23 @@ header a {
     font-size: 22px;
 }
 
-header nav.menu-desktop a:hover{
+header a:hover {
     color: black;
     transform: scale(1.05);
 }
 
 header nav ul {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
-header nav.menu-desktop ul li{
+header nav ul li {
     display: inline-block;
-    padding: 0 20px;
+    padding: 0 40px;
 }
+
+
 
 .sair {
     background-color: gray !important;
