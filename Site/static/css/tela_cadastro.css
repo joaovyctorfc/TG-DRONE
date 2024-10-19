@@ -164,30 +164,39 @@ body {
     background-color: #0a73c2;
 }
 
-@media screen and (max-width: 1330px){
-    .form-image{
+@media screen and (max-width: 1330px) {
+    .imagem {
         display: none;
-    }
-
-    .container{
-        width: 80%;
-    }
-
-    .form{
-        width: 100%;
     }
 }
 
 @media screen and (max-width: 1064px) {
-    .container{
-        width: 50%;
+    .container {
+        width: 90%;
         height: auto;
+        flex-direction: column; /* Alinha os elementos verticalmente */
     }
-    .input-group{
+
+    .form {
+        width: 100%;
+        padding: 2rem; /* Ajuste no padding para encaixar melhor */
+    }
+
+    .input-group {
         flex-direction: column;
-        overflow: scroll;
         flex-wrap: nowrap;
+        overflow-y: scroll; /* Mantém a rolagem vertical */
         max-height: 10rem;
-        padding-right: 5rem;
+        padding-right: 0;
+    }
+
+    .cadastro-btn {
+        width: 40%; /* Aumenta a largura do botão */
+        padding: 0.8rem; /* Aumenta o padding interno para um botão mais alto */
+    }
+
+    .input-box {
+        width: 100%; /* Ajusta os campos para ocupar toda a largura */
+        margin-bottom: 1rem; /* Espaçamento entre os campos */
     }
 }

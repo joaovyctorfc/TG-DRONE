@@ -2,24 +2,30 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IT=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="{{url_for('static',filename='css/tela_perfil.css')}}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tela_perfil.css') }}" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <title>Perfil</title>
 </head>
-
+<body>
 <header class="site-header">
     <div class="interface">
-      <div class="logo">
-         <a href="#">
-            <img src="{{ url_for('static', filename='css/Imgs/logo.png') }}"  alt="Logo" width="75px">
-         </a>
-     </div>
- 
-         <nav class="menu-desktop">
+        <div class="logo">
+            <a href="#">
+                <img src="{{ url_for('static', filename='css/Imgs/logo.png') }}"  alt="Logo" width="75px">
+            </a>
+        </div>
+        
+        <!-- Botão de abrir o menu mobile -->
+        <button class="btn-abrir-menu">
+            <i class="bi bi-list"></i>
+        </button>
+
+        <nav class="menu-desktop">
             <ul>
                 <li><a href="/home">Início</a></li>
                 <li><a href="/tempo">Clima</a></li>
@@ -27,122 +33,116 @@
                 <li><a href="/Video">Biblioteca</a></li>
                 <li><a href="/perfil">Perfil</a></li>
             </ul>
-         </nav>
-         <a href="/">
-            <button class="sair" >Sair</button>
+        </nav>
+        
+        <a href="/">
+            <button class="sair">Sair</button>
         </a>
     </div>
- </header>
-<body>
-    
-    <div class="container">
-        <div class="imagem">
-            <label class="picture" for="picture__input" tabIndex="0">
-                <span class="picture__image"></span>
-              </label>
-              
-              <input type="file" name="picture__input" id="picture__input">
-        </div>
-        <div class="form">
-            <form action="#">
-                <div class="form-header">
-                    <div class="title">
-                        <h1>Perfil</h1>
-                    </div>
-                </div>
+</header>
 
-                <div class="input-group">
-                    <div class="input-box">
-                        <label for="firstname">Primeiro nome</label>
-                        <input id= "firstname" type="text" name="firstname" placeholder="Digite seu primeiro nome" required>
-                    </div>
-                    <div class="input-box">
-                        <label for="lastname">Sobrenome</label>
-                        <input id= "lastname" type="text" name="lastname" placeholder="Digite seu Sobrenome" required>
-                    </div>
-                    <div class="input-box">
-                        <label for="email">Email</label>
-                        <input id= "email" type="email" name="email" placeholder="Digite seu Email" required>
-                    </div>
-                    <div class="input-box">
-                        <label for="number">Celular</label>
-                        <input id= "number" type="tel" name="number" placeholder="(xx) xxxx-xxxx" pattern="\(\d{2}\) \d{4,5}-\d{4}" required>
-                    </div>
-                    <div class="input-box">
-                        <label for="password">Senha</label>
-                        <input id= "password" type="password" name="password" placeholder="Digite sua senha" required>
-                    </div>
-                    <div class="input-box">
-                        <label for="password">Confirme sua senha</label>
-                        <input id= "password" type="password" name="confirmpassword" placeholder="Digite sua sonha" required>
-                    </div>
-                </div>
-                <div class="continue-button">
-                    <button><a href="#">Alterar</a></button>
-                </div>
-            </form>
-        </div>
+<!-- Estrutura do menu mobile -->
+<div class="menu-mobile">
+    <div class="menu-header">
+        <button class="btn-fechar">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
     </div>
+    <nav>
+        <ul>
+            <li><a href="/home">Início</a></li>
+            <li><a href="/tempo">Clima</a></li>
+            <li><a href="/IA">Análise de Vídeo</a></li>
+            <li><a href="/Video">Biblioteca</a></li>
+            <li><a href="/perfil">Perfil</a></li>
+            <li><a href="/">Sair</a></li>
+        </ul>
+    </nav>
+</div>
 
-    <script>
-        // Função para aplicar a máscara de telefone
-        function applyPhoneMask(input) {
-            // Remove todos os caracteres que não são dígitos
-            var phone = input.value.replace(/\D/g, '');
+<!-- Overlay que aparece quando o menu está aberto -->
+<div class="overlay-menu"></div>
 
-            // Verifica o tamanho do número e aplica a máscara adequada
-            if (phone.length <= 2) {
-                input.value = '(' + phone;
-            } else if (phone.length <= 6) {
-                input.value = '(' + phone.substring(0, 2) + ') ' + phone.substring(2);
-            } else if (phone.length <= 10) {
-                input.value = '(' + phone.substring(0, 2) + ') ' + phone.substring(2, 6) + '-' + phone.substring(6);
-            } else {
-                input.value = '(' + phone.substring(0, 2) + ') ' + phone.substring(2, 7) + '-' + phone.substring(7, 11);
-            }
-        }
+<div class="form">
+    <form action="#">
+        <div class="form-header">
+            <div class="title">
+                <h1>Perfil</h1>
+            </div>
+        </div>
 
-        // Obtém o elemento de entrada de telefone
-        var phoneInput = document.getElementById('number');
+        <div class="input-group">
+            <div class="input-box">
+                <label for="firstname">Primeiro nome</label>
+                <input id="firstname" type="text" name="firstname" placeholder="Digite seu primeiro nome" required>
+            </div>
+            <div class="input-box">
+                <label for="lastname">Sobrenome</label>
+                <input id="lastname" type="text" name="lastname" placeholder="Digite seu Sobrenome" required>
+            </div>
+            <div class="input-box">
+                <label for="email">Email</label>
+                <input id="email" type="email" name="email" placeholder="Digite seu Email" required>
+            </div>
+            <div class="input-box">
+                <label for="number">Celular</label>
+                <input id="number" type="tel" name="number" placeholder="(xx) xxxx-xxxx" pattern="\(\d{2}\) \d{4,5}-\d{4}" required>
+            </div>
+            <div class="input-box">
+                <label for="password">Senha</label>
+                <input id="password" type="password" name="password" placeholder="Digite sua senha" required>
+            </div>
+            <div class="input-box">
+                <label for="password">Confirme sua senha</label>
+                <input id="password" type="password" name="confirmpassword" placeholder="Digite sua senha" required>
+            </div>
+        </div>
+        <div class="continue-button">
+            <button><a href="#">Alterar</a></button>
+        </div>
+    </form>
+</div>
 
-        // Aplica a máscara de telefone quando o usuário digita
-        phoneInput.addEventListener('input', function() {
-            applyPhoneMask(this);
-        });
-    </script>
+<script>
+    // Função para abrir e fechar o menu mobile
+    const abrirMenu = document.querySelector('.btn-abrir-menu');
+    const fecharMenu = document.querySelector('.btn-fechar');
+    const menuMobile = document.querySelector('.menu-mobile');
+    const overlayMenu = document.querySelector('.overlay-menu');
 
-
-    <script >
-        const inputFile = document.querySelector("#picture__input");
-const pictureImage = document.querySelector(".picture__image");
-const pictureImageTxt = "Choose an image";
-pictureImage.innerHTML = pictureImageTxt;
-
-inputFile.addEventListener("change", function (e) {
-  const inputTarget = e.target;
-  const file = inputTarget.files[0];
-
-  if (file) {
-    const reader = new FileReader();
-
-    reader.addEventListener("load", function (e) {
-      const readerTarget = e.target;
-
-      const img = document.createElement("img");
-      img.src = readerTarget.result;
-      img.classList.add("picture__img");
-
-      pictureImage.innerHTML = "";
-      pictureImage.appendChild(img);
+    abrirMenu.addEventListener('click', function() {
+        menuMobile.classList.add('abrir-menu');
+        overlayMenu.style.display = 'block';
     });
 
-    reader.readAsDataURL(file);
-  } else {
-    pictureImage.innerHTML = pictureImageTxt;
-  }
-});
+    fecharMenu.addEventListener('click', function() {
+        menuMobile.classList.remove('abrir-menu');
+        overlayMenu.style.display = 'none';
+    });
 
-    </script>
+    overlayMenu.addEventListener('click', function() {
+        menuMobile.classList.remove('abrir-menu');
+        overlayMenu.style.display = 'none';
+    });
 
+    // Função para aplicar a máscara de telefone
+    function applyPhoneMask(input) {
+        var phone = input.value.replace(/\D/g, '');
+        if (phone.length <= 2) {
+            input.value = '(' + phone;
+        } else if (phone.length <= 6) {
+            input.value = '(' + phone.substring(0, 2) + ') ' + phone.substring(2);
+        } else if (phone.length <= 10) {
+            input.value = '(' + phone.substring(0, 2) + ') ' + phone.substring(2, 6) + '-' + phone.substring(6);
+        } else {
+            input.value = '(' + phone.substring(0, 2) + ') ' + phone.substring(2, 7) + '-' + phone.substring(7, 11);
+        }
+    }
+
+    var phoneInput = document.getElementById('number');
+    phoneInput.addEventListener('input', function() {
+        applyPhoneMask(this);
+    });
+</script>
 </body>
 </html>
